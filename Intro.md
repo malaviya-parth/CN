@@ -1,0 +1,10 @@
+- Earlier more & more computers were installed in different plalces of world. Need was to trasfer data between them.
+- Floppy Disks and Tape drivers were used to transfer data, which wasn't efficient.
+- Later started to connect them through wired networks.
+- Thre are issues while transfering data through wired networks like:
+  - Data transfer rate is slow.
+  - Different format of data.
+  - Binary data to Signals
+  - Who can access channel when
+- For all this we need a Network model which can handle all the issues related to data transfer b/w computers.
+- There are layers in the Network model which perform subtasks to transfer data.
