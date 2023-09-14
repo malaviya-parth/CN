@@ -1,7 +1,7 @@
 - Earlier more & more computers were installed in different plalces of world. Need was to trasfer data between them.
 - Floppy Disks and Tape drivers were used to transfer data, which wasn't efficient.
 - Later started to connect them through wired networks.
-- Thre are issues while transfering data through wired networks like:
+- There are issues while transfering data through wired networks like:
   - Data transfer rate is slow.
   - Different format of data.
   - Binary data to Signals
