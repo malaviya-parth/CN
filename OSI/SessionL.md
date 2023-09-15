@@ -13,4 +13,4 @@
 
 4. **Token Management**: Cookies or Tokens are generated at server side & sent to client, So next time when client sends request to server, it sends the token along with the request. Server verifies the token & sends the response.
 
-5. **Authentication & Authrization**: It verifies the credentials of the user & authorizes the user to access the resources. 
+5. **Authentication & Authorization**: It verifies the credentials of the user & authorizes the user to access the resources. 
