@@ -75,3 +75,20 @@ D.W.   C.W.
 - Co-efficient of $x^1$ must be 1 (So that divisor becomes an odd number & all single bit errors can be detected)
 - Must be a multiple of $x + 1$. (So that odd number of errors can be detected)
 
+## GATE 2005
+- Message m = 1010001101, Divisor = $x^5 + x^4 + x^2 + 1$, Find C.W.
+
+### Solution
+- Append 5 zeros to message $\rightarrow$ 101000110100000
+- Divisor = $x^5 + x^4 + x^2 + 1$ $\rightarrow$ 110101
+- Remainder = 01110
+- C.W. = 101000110101110
+
+## GATE 2007
+- Message m = 11001001, Polynomial = $x^3 + 1$, Find C.W.
+
+### Solution
+- Append 3 zeros to message $\rightarrow$ 11001001000
+- Divisor = $x^3 + 1$ $\rightarrow$ 1001
+- Remainder = 011
+- C.W. = 11001001011
