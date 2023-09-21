@@ -53,3 +53,50 @@
   - = $N(\frac{1}{1-P})$
   - = $100(\frac{10}{8})$
   - = 125 Packets
+
+## Efficiency
+
+- It take T.P. + T.T. time to send one frame fro msender to receiver.(Neglecting Q.T. + P.T.)
+- Similarly, it takes T.P. time to send ACK from receiver to sender. (Acknowledgement is of negligible size so T.T. is negligible)
+- So, total time taken to send one frame & receive ACK is 2(T.P. + T.T.)
+- Here, Useful time(Amount of time sender is busy) = T.T.
+- Cycle time (Time to send frame and Receive ACK)= 2(T.P.) + T.T.
+- Efficiency = $\frac{Useful Time}{Cycle Time}$
+- = $\frac{T.T.}{2(T.P.) + T.T.}$
+- = $\frac{1}{1 + \frac{2(T.P.)}{T.T.}}$
+- = $\frac{1}{1 + 2\alpha}$, where $\alpha$ = $\frac{T.P.}{T.T.}$
+- 2 $\times$ T.P. is called as Round Trip Time(RTT).
+
+## Throughput
+
+- Actually how fast we can send data i.e. no. of bits actually transmitted per second.
+- Throughput = $\eta$ $\times$ Bandwidth, where $\eta$ is efficiency.
+
+## Question 
+Packet Size is 1000 bits, Bandwidth is 1 Mbps, T.P. is 10 ms. Find % of utilization of link. Throughput in kbps.
+
+### Solution
+T.T. = $\frac{Packet Size}{Bandwidth}$ = $\frac{1000}{10^6}$ = 1 ms  
+$\alpha$ = $\frac{T.T.}{2(T.P.)+T.T.}$ = $\frac{1}{2(10)+1}$ = $\frac{1}{21}$  
+Throughput = $\eta$ $\times$ Bandwidth = $\frac{1}{21}$ $\times$ 1 Mbps = $\frac{1}{21}$ Mbps = 47.6 kbps
+
+## Question
+If efficieny is grater than or equal to 50$% find the relationship b/w T.T. & T.P. in stop & wait ARQ.
+
+### Solution
+$\eta$ $\geq$ $\frac{1}{2}$  
+For efficieny to be more than 50% the term $\frac{T.T.}{2(T.P.)+T.T.}$ should be more than or equal to $\frac{1}{2}$  
+$2 T.T. \geq 2 T.P. + T.T.$  
+$T.T. \geq 2 T.P.$  
+
+## Question
+Stop & Wait protocol is better for sending small packets or Big Packets?
+
+### Solution
+If packet size is big then obviously T.T. will be more and hence efficiency will be more.
+
+## Question
+How will the efficiency be affected if distance between S & R is increased?
+
+### Solution
+As distance increases T.P. will increase and hence efficiency will decrease.
