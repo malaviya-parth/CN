@@ -47,3 +47,33 @@ TT = 1 sec, TP = 5 sec
 2. Sequence number bits required = $\lceil log_2(1 + 2a) \rceil$ = $\lceil log_2(11) \rceil$ = 4
 3. Maximum we can send is 11 but we are sending only 8 frames.  
    - Efficiency = 8/11 = 72.72%
+
+> Efficiency = $\frac{Actual \; window \; size}{Maximum \; window \; size}$   
+>   
+> Maximum window size = 1 + 2a  
+
+## GATE 2003
+Host A is sending data to HostB. Sender & receiver window size = 5 packets. Packet Size = 1000 bytes, Transmission time = 50 $\mu$s, Propagation time = 200 $\mu$s. Size of ACK is negligible. Maximum Achievable throughput?
+
+### Solution
+B/W = 1000 $\times$ 8/50 $\mu$s = 160 Mbps  
+Efficiency = $\frac{Actual \; window \; size}{Maximum \; window \; size}$ = $\frac{5}{1 + 2a}$ = $\frac{5}{9}$ = 55.55%
+Throughput = 55.55% $\times$ 160 Mbps = 88.88 Mbps = 11.11 MBps
+
+## GATE 2006
+Station A sending 32 bytes packet to station B using sliding window protocol. The round trip delay between A & B is 80 ms & the bottleneck bandwidth on the path between A & B is 128 kbps. What is the optimal window size that A should use?
+
+### Solution
+RTT = 80 ms = 2TP  
+TT = 32 $\times$ 8/128 kbps = 2 ms  
+TP = 80/2 = 40 ms
+Window Size = 1 + 2a = 1 + 2*40/2 = 41
+
+## GATE 2007
+Distance beetween 2 stations M & N is L km, frame size = K bits. Propagation speed per km is 't' sec. R bits/sec is the channel capacity. Minimum number of bits required for the sequence number field to achieve 100% utilization?
+
+### Solution
+For maximum efficiency, Actual Window Size = 1 + 2a  
+a = $\frac{TP}{TT}$ = $\frac{(Lt)R}{K}$  
+Actual Window Size = 1 + 2a = 1 + 2$\frac{(Lt)R}{K}$  
+Number of bits required = $\lceil log_2(1 + 2\frac{(Lt)R}{K}) \rceil$
