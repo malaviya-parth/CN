@@ -100,3 +100,6 @@ How will the efficiency be affected if distance between S & R is increased?
 
 ### Solution
 As distance increases T.P. will increase and hence efficiency will decrease.
+
+## Note:-
+> If asked about window size then for both sender & receiver window size will be 1. 

@@ -77,3 +77,23 @@ For maximum efficiency, Actual Window Size = 1 + 2a
 a = $\frac{TP}{TT}$ = $\frac{(Lt)R}{K}$  
 Actual Window Size = 1 + 2a = 1 + 2$\frac{(Lt)R}{K}$  
 Number of bits required = $\lceil log_2(1 + 2\frac{(Lt)R}{K}) \rceil$
+
+## GATE 2009
+Frame Size = 1000 bits, B/W = 1 Mbps, Duplex Link, Propagation Delay = 25 ms. Frames to be transmitted into this link to maximally pack them in transit.
+1. Minimum no. of bits required to represent the sequence no. distinctly. Assume no time gap between transmission of 2 frames.
+2. If SWp is used with sender window size = $2^m$, (m determined in part 1), Minimum time the sender have to wait before starting transmission of next frame. ACKs are always piggybacked.
+
+### Solution
+1. Capacity of link = 1 Mbps $\times$ 25 ms = 25000 bits
+   - Number of frames = 25000/1000 = 25  
+   - Number of bits required = $\lceil log_2(25) \rceil$ = 5.
+2. Window size is 5 bits, so sender can send 32 frames, then wait for ACK to come.
+   - when sender sends 26th frame, 1st ACK will be sent from receiver.
+   - ACK will take 26 ms to reach sender.
+   - TT for sender = 1000/1000000 = 1 ms
+     - for sending 32 frames = 32 ms
+     - ACK is piggybacked for 1 ms by receiver for ACK of 1st frame.
+     - 1st ACk will be received after 52 ms
+     - So sender will have to wait for 20 ms before sending 33rd frame.
+
+- Suppose the sender had only 15 frames that it can send then busy time will be 15 ms instead of 32 ms and hence the sender will have to wait for 37 ms before sending 16th frame.
