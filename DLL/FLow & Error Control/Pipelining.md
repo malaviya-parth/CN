@@ -1,6 +1,6 @@
 # Concept of Pipelining
 
-- We know that for first packet it takes tt + tp time, and rest arrives at +tt interval of time. This is all because of the pipelining concept.
+- We know that for first packet it takes tt + tp time, and rest arrives at +Tt interval of time. This is all because of the pipelining concept.
 
 ## Example 
 
