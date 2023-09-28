@@ -184,3 +184,70 @@
 - Given IP is of class A.
 - There are 6 bits in subnet number so there are $2^{6} = 64$ subnets.
 - Number of Hosts in each subnet = $2^{24-6} - 2 = 2^{18} - 2 = 262142$
+
+## Routing in Subnetting
+
+- The router connected to Internet and LAN router has only the information of the network address of the LAN and not the subnet addresses.
+- There is a site router which has the information of the subnet addresses.
+  - This site router will have entries equal to the number of subnets in the LAN.
+  - It will map each subnet ID with the port number in the table.
+- From a given ID site router will find subnet ID and then it will forward the packet to the LAN router.
+  - Internet router does AND with the class net mask, here site router will do AND with subnet mask.
+  - The subnet mask will have first k bits as 1 which are used to number the subnets and rest bits as 0 which are used to number the hosts in each subnet.
+
+## Summary
+> Internet Router forwards the packet to the site router using Net Mask.  
+> Site Router forwards the packet to the desired host using Subnet Mask.
+
+## Question
+Suppose there is a Class A address and is shared among 8 organization what will be it's subnet mask.
+
+### Solution
+- 3 bits will be used to label subnets
+- Subnet Mask = 255.224.0.0
+
+## Question
+Class B IP address shared among 16 organizations, what will be it's subnet mask.
+
+### Solution
+- 16 subnets so 4 bits to label them
+- Subnet Mask = 255.255.240.0
+
+## Question
+Class C IP address shared among 2 organizations, what will be it's subnet mask.
+
+### Solution
+- Subnet Mask = 255.255.255.128
+- with one bit we can label subnets
+
+## Question
+Class A IP addresss with 1024 subnets, what will be it's subnet mask.
+
+### Solution
+- 9 bits to label subnets
+- Subnet Mask = 255.255.192.0
+
+## Question
+Class C address with 32 subnets, what will be it's subnet mask.
+
+### Solution
+- 5 bits to label subnets
+- Subnet Mask = 255.255.255.248
+
+## Question
+A subnet mask contains 15 1s, what are the number of subnets possible
+
+### Solution
+- 15 1s are there in the subnet mask so it will be : 255.254.0.0
+- First octet is 255 and next is not 255 so it is a class A address.
+- Second octet contains 7 1s so number of subnets = $2^{7} = 128$
+
+## Question
+A subnet mask contains 18 1s, what are the number of subnets possible
+
+### Solution
+- Subnet mask = 255.255.192.0
+- Now this has first two octets as 255 so it is a class B address.
+- Also there is a possibility of more than 8 bits can be used for subnetting if it belongs to class A.
+- If belongs to class B then subnets = $2^{2} = 4$
+- If belongs to class A then subnets = $2^{10} = 1024$
