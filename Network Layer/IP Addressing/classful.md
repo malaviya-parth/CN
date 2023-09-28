@@ -85,4 +85,29 @@
 - First Org: 192.0.0.0 to 192.0.0.255
 - Second Org: 192.0.1.0 to 192.0.1.255
 - 257th Org: 192.1.0.0 to 192.1.0.255
-- Last Org: 223.255.255.0 to 223.255.255.255
+- Last Org: 223.255.255.0 to 223.255.255.
+
+## Net Mask
+
+## Question
+Given an IP address, find which is the first address, last address and how many addresses in the block to which this IP address belongs ___. IP = 73.65.45.90
+
+### Solution
+- Given address belongs to class A
+- First octet NETid and rest HOSTid
+- First address = 73.0.0.0
+- Last address = 73.255.255.255
+- Number of addresses = $2^{24} = 16777216$
+
+> This calculation are performed by routers to find the Net id and Host id of the given IP address with the help of subnet mask.  
+> Afte finding the class of IP perform AND operation with subnet mask to find the first address. OR operation with NOT of subnet mask to find the last address.
+
+- To find first address
+  - Net Mask for Class A = 255.0.0.0  
+  - Net Mask for Class B = 255.255.0.0  
+  - Net Mask for Class C = 255.255.255.0
+- To find last address
+  - Net Mask for Class A = 0.255.255.255
+  - Net Mask for Class B = 0.0.255.255
+  - Net Mask for Class C = 0.0.0.255
+- Net Mask is useful to find Net id which is used by router to find the router to which the packet should be forwarded to.
