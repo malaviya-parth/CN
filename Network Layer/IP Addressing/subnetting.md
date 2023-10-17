@@ -185,20 +185,6 @@
 - There are 6 bits in subnet number so there are $2^{6} = 64$ subnets.
 - Number of Hosts in each subnet = $2^{24-6} - 2 = 2^{18} - 2 = 262142$
 
-## Routing in Subnetting
-
-- The router connected to Internet and LAN router has only the information of the network address of the LAN and not the subnet addresses.
-- There is a site router which has the information of the subnet addresses.
-  - This site router will have entries equal to the number of subnets in the LAN.
-  - It will map each subnet ID with the port number in the table.
-- From a given ID site router will find subnet ID and then it will forward the packet to the LAN router.
-  - Internet router does AND with the class net mask, here site router will do AND with subnet mask.
-  - The subnet mask will have first k bits as 1 which are used to number the subnets and rest bits as 0 which are used to number the hosts in each subnet.
-
-## Summary
-> Internet Router forwards the packet to the site router using Net Mask.  
-> Site Router forwards the packet to the desired host using Subnet Mask.
-
 ## Question
 Suppose there is a Class A address and is shared among 8 organization what will be it's subnet mask.
 
@@ -251,3 +237,71 @@ A subnet mask contains 18 1s, what are the number of subnets possible
 - Also there is a possibility of more than 8 bits can be used for subnetting if it belongs to class A.
 - If belongs to class B then subnets = $2^{2} = 4$
 - If belongs to class A then subnets = $2^{10} = 1024$
+
+## Routing in Subnetting
+
+- The router connected to Internet and LAN router has only the information of the network address of the LAN and not the subnet addresses.
+- There is a site router which has the information of the subnet addresses.
+  - This site router will have entries equal to the number of subnets in the LAN.
+  - It will map each subnet ID with the port number in the table.
+- From a given ID site router will find subnet ID and then it will forward the packet to the LAN router.
+  - Internet router does AND with the class net mask, here site router will do AND with subnet mask.
+  - The subnet mask will have first k bits as 1 which are used to number the subnets and rest bits as 0 which are used to number the hosts in each subnet.
+    - Like if 4 organisations are participating then 2 bits will be used for the subnetting purpose and hence the subnet mask will be 255.192.0.0
+
+## Summary
+> Internet Router forwards the packet to the site router using Net Mask.  
+> Site Router forwards the packet to the desired host using Subnet Mask.
+
+## Question
+Subnet mask for Class B with block shared between 16 organizations
+
+### Solution
+- 4 bits will be used for 16 organizations
+- Subnet Mask: 255.255.240.0
+
+## Question
+Class C IP address distributed among 2 organizations then the subnet mask will be
+
+### Solution
+- 1 bit for 2 organizations
+- Subnet Mask: 255.255.255.128
+
+## Question
+Class A IP shared among 512 organizations then the subnet mask will be
+
+### Solution
+- 9 bits for the subnetting
+- Subnet Mask: 255.255.128.0
+
+## Question
+Given an IP 140.41.0.0 which is distributed among 8 organization then the subnet mask will be?
+
+### Solution
+- 140.41.0.0 belongs to class B
+- Distributed among 8 orgs hence 3 bits used for subnetting
+- Subnet Mask: 255.255.224.0
+
+## Question
+Subnet Mask contains 15 1s then how many number of subnets are possible
+
+### Solution
+- Here we need to check according whether there are different number of classes possible or not
+- Since 15 1s are there so only first octet will be filled no other will be filled.
+  - For Class A 
+  - 2nd octet contains seven 1s 
+  - $\therefore 2^{7} = 128$
+  - Hence, it will be divided among 128 organizations
+  - According, to old conventions we used to eliminate firsr and last address and answer can be 126 as well
+  - If both provided in the option then asnwers will be 128.
+
+## Question
+Subnet Mask contains 15 1s then how many number of subnets are possible
+
+### Solution
+- Here we need to check according whether there are different number of classes possible or not
+- Since 18 1s we have two octet full
+  - For Class A
+    - $2^{10}$ = 1024
+  - FOr Class B
+    - $2^{2}$ = 4
