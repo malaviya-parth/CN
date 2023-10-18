@@ -92,3 +92,82 @@ IP address of a block is 100.40.50.153, Subnet Mask of that block is 255.255.255
 - Subnet No: 11111111111111111001 + 1
 - $4^{th}$ Subnet = 100.00000000.00000000.<u>0011</u> 0000 = 100.0.0.48
 - $27^{th}$ Subnet = 100.00000000.0000000<u>1.1010</u> 0000 = 100.0.1.160
+
+# Part 2
+
+## Question
+IP address in a block is 100.150.40.50, Subnet Mask = 255.252.0.0
+1) 1st host in 2nd subnet
+2) 3rd host in 4th subnet
+3) 4th host in 3rd subnet
+
+### Solution
+- IP is of class A
+- Looking subnet Mask we get that 6 bits are used for subnetting
+- 2nd subnet = 100.4.0.0
+  - 1st host in this subnet = 100.4.0.1
+- 4th subnet = 100.12.0.0
+  - 3rd host in this subnet = 100.12.0.3
+- 3rd subnet = 100.8.0.0
+  - 4th host in this subnet = 100.8.0.4
+
+## Question
+IP address in a block is 150.150.40.50, Subnet Mask = 255.255.224.0
+1) 1st host in 2nd subnet
+2) 3rd host in 4th subnet
+3) 4th host in 3rd subnet
+
+### Solution
+- IP is of class B
+- Bits used in subnetting = 3
+- 2nd subnet = 150.150.32.0
+  - 1st host in this subnet = 150.150.32.1
+- 4th subnet = 150.150.96.0
+  - 3rd host in this subnet = 150.150.96.3
+- 3rd subnet = 150.150.64.0
+  - 4th host in this subnet = 150.150.64.4
+
+## Question
+IP1 = 140.41.40.50 | IP2 = 140.41.50.40 | IP3 = 140.41.68.40 | Subnet Mask = 255.255.192.0  
+Which of the following IP addresses belongs to the same subnet?
+
+### Solution
+- IP1 AND Mask = 140.41.0.0
+- IP2 AND Mask = 140.41.0.0
+- IP3 AND Mask = 140.41.64.0
+- Hence, IP1 and IP2 belongs to the same class
+
+## Question
+IP1 = 140.41.40.50 | IP2 = 140.41.50.40 | IP3 = 140.41.68.40 | Subnet Mask = 255.255.240.0  
+Give the subnet no for given IP
+
+### Solution
+- IP1 AND Mask = 140.41.32.0 $\rightarrow$ 0010 = 3rd Subnet
+- IP2 AND Mask = 140.41.48.0 $\rightarrow$ 0011 = 4th Subnet
+- IP3 AND Mask = 140.41.64.0 $\rightarrow$ 0100 = 5th Subnet
+
+## Question
+IP1 = 200.41.40.50 | IP2 = 200.41.40.60 | IP3 = 200.41.40.40 | Subnet Mask = 255.255.255.224
+Which host of which subnet?
+
+### Solution
+- IP1 AND Mask = 200.41.40.32
+  - 50 = 001 10010 $\rightarrow$ 2nd subnet and 18th host
+- IP2 AND Mask = 200.41.40.32
+  - 60 = 001 11100 $\rightarrow$ 2nd subnet and 28th host
+- IP3 AND Mask = 200.41.40.32
+  - 40 = 001 01000 $\rightarrow$ 2nd subnet and 8th host
+- We have not done +1 in case of host because we have reserved first and last host ID for subnet ID and Broadcast that's why.
+
+## Question
+IP1 = 150.41.40.50 | IP2 = 150.41.60.60 | IP3 = 150.41.80.40 | Subnet Mask = 255.255.252.0
+Which host of which subnet?
+
+### Solution
+- 252 $\rightarrow$ 6 bits in subnetting
+- IP1 AND Mask = 150.41.<u>001010</u>00.00110010
+  - 11th Subnet and 50th Host
+- IP2 AND Mask = 150.41.<u>001111</u>00.60
+  - 16th subnet and 60th host
+- IP3 AND Mask = 150.41.<u>010100</u>00.40
+  - 21st subnet and 40th Host
