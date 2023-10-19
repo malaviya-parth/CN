@@ -241,7 +241,7 @@ An organisation need to connect 500 hosts, which block will be given and how man
 - Now giving C class is not feasible here.
 - Best choice will be class B
 - Also in third octet 7 bits are left for subnetting
-- Number of orgs = $ 2^{7} = 128$
+- Number of orgs = $2^{7} = 128$
 
 ## Question
 Which of the following is true?
@@ -294,3 +294,14 @@ Find the subnet ID for the 1oth subnet in IP: 200.40.50.60 and Subnet Mask: 255.
   - DBA: 200.40.50.219
 - 3rd Host of 2nd Subnet
   - 200.40.50.19
+
+> For subnet number arrange only those bits contributing in subnetting  
+> For host number arrange bits which are not contributing in subnetting  
+
+## Question
+Class C block is shared among 3 organisation. What is the wastage of that block?
+
+### Solution
+- for that we need to have 4 parts to allocate 3 orgs
+- So, one part will be wasted
+- Hence, wasted = 8/2 = $2^{6}$
