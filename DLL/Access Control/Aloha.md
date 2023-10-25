@@ -71,7 +71,8 @@ We Are saying it as Expotential Back-off because probability of collision is dec
 Vunerable time is the range of time in which collision can take place.  
 
 Let Transmission Time is 2 ms. Suppose A Want to send data at 4 ms. Now if B sends data at even 2.001 ms then collision will occur. Similarly if B sends data at 5.999 ms then also collision will occur. Hence the range of time in which collision can occur is 2 ms to 6 ms.  
-Range = $2 \times Tt$.
+Range = $2 \times Tt$.  
+Look here we have not considered propagation Time because Pure Aloha is mainly used in wireless networks and in Wireless networks propagation is negligible compared to transmission time.
 
 ## Throughput
 S = $G \times e^{-2G}$  
