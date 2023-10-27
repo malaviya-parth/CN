@@ -245,3 +245,36 @@ Why FO is divided by 8?
 
 ### Solution
 - It is a 13 bit field and for max size block 65512(65535-20)(three bits we removed to adjust for 8 divisibility) requires 16 bits to store so we divide by 8 to eliminate 3 bits which adjust the storage into 13 bits.
+
+## Question
+What is N/W layer overhead?
+
+### Solution
+- What are the extra bytes we had sent after fragmentation is the N/W layer overload.
+- Like in above example of MTU 500 to MTU 200, sir said answer is 80 bytes but I didn't get it
+
+
+## Question
+What is overhead due to fragmentation
+
+### Solution
+- Overhead due to fragmentation is 60.
+
+## Question
+What is efficiency, B/W utilization or Throughput?
+
+### Solution
+- Useful data/Actual data 
+- Throughput = Efficiency * B/W
+
+## Question
+Where Fragmentation is done
+
+### Solution
+- It is done at intermediate routers
+
+## Question
+If D=1 & Router needs to do fragmentation then?
+
+### Solution
+- Router will discard the datagram and send ICMP error message to sender.
