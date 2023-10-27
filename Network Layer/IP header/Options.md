@@ -1,0 +1,20 @@
+## Options
+- THere are two types of IPv4 options: Single byte and Multiple byte.
+- There are single byte option field
+  - **No operation:** It is used as a filler & is used to make header multiple of 4 bytes.(Helps in HLEN representation.)
+  - **End of Options:** As the name suggests it is the last byte of options & after it payload starts.
+- There are also multiple byte options
+  - **Record Route:** It is used to record IP addresses of router that handles the datagram & can store upto 9 router addresses.
+    - It is used in debugging & management of N/W.
+    - In the datagram the router fills their own IP address and this is how route is recorded.
+    - It is a 4 byte field, and as can stor upto 9 addresses so it can take upto 36 bytes in options.
+  - **Strict Source Route:** Source will decide the route & that will be strict
+    - It is useful because sender can choose a specific type of service like min. delay, max throughput etc.
+    - If SSR is specified then only those routes will be visited which are in the list.
+    - If datagram visits a router whose address is missing in the list then it is discarded.
+    - Packet will be discarded even if all the routers are not visited.
+  - Loose Source Route: Same as SSR but datagram can visit routes which are not in the list.
+    - But datagram must visit all the routers in the list otherwise it will be discarded.
+  - **Time Stamp:** It is used to record the time of datagram processing by a router.
+    - It can help users & managers to track behavior of router in internet.
+    - We can estimate the time it takes for a datagram to go from one router to another.
