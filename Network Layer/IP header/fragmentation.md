@@ -123,5 +123,38 @@ If fragmentation is done, how to check whether fragment is $1^{st}$ or middle?
 Fragmentation offset is 100, then find the first byte no. carried in the fragment. Can we find last byte No.?
 
 ### Solution
-- Firsrt Byte: 100 * 8 = 800
+- First Byte: 100 * 8 = 800
 - We can't find last byte number as we don't know size of fragment.
+
+## Question
+If FO = 100 & TL = 100. Can we find last byte No?
+
+### Solution
+- First byte = 100 * 8 = 800
+- Still we can't find the last byte as we don't know the header length.
+- If question encountered in GATE, consider minimum header length.
+- If Data insufficient option present, tick that.
+
+## Question
+If FO = 100 & TL = 100, HLEN = 20. Can we find last byte No?
+
+### Solution
+- Fisrt byte = 800
+- As Header Length is 20 so it would be included there in the fragment.
+- Remaining 80 bytes of data will be there
+  - So, Last byte = 800 + 79 = 879
+
+## Question
+If length of IP datagram is 1000 bytes & we need to make fragments of 100 bytes. How many fragments will be constructed assuming header is of 20 bytes.
+
+### Solution
+- As IP datagram is of 1000 byte and HLEN = 20, total data in it = 980.
+- First fragment will have upto 100 bytes from the datagram.
+- From second fragment onwards we can only have 80 bytes of data as 20 byte will always be present in that fragment as header.
+  - Second Fragment = 180
+  - Third Fragment = 260
+  - So on...
+- Number of fragments for 900 byte of data = $\frac{900}{80} = 12$\
+- Total Fragments = 13
+- The last fragment contains only 20 byte of data(80*11=880) + 20 byte of header.
+- Total number of bytes sent = 1200 + 40 = 1240 bytes
