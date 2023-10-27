@@ -158,3 +158,90 @@ If length of IP datagram is 1000 bytes & we need to make fragments of 100 bytes.
 - Total Fragments = 13
 - The last fragment contains only 20 byte of data(80*11=880) + 20 byte of header.
 - Total number of bytes sent = 1200 + 40 = 1240 bytes
+
+## Note:
+> The fragmentation is done such that the length of the data present in the fragment must be multiplle of 8.
+
+## Example
+Suppose a 520 byte of segment with payload 500 bytes is to be transferred to a network with MTU = 200, we need to make fragments. Suppose ID = 50 for this packet.
+- Fragments will be 
+- `| 20 | 176 |`, `| 20 | 176 |`, `| 20 | 148 |`
+- Here we took data of size 176 as it is nearset multiple of 8 smaller than 180.
+
+| | First | Second | Third |
+|-| ----- | ------ | ----- |
+| Range | 0-175 | 176-351 | 352-499 |
+| FO | 0 | 22 | 44 |
+| D | 0 | 0 | 0 |
+| M | 1 | 1 | 0 |
+| TL | 196 | 196 | 168 |
+| ID | 50 | 50 | 50 |
+
+## Question
+If 2nd fragment goes through a N/W whose MTU is 110 then give value of all fields.
+
+### Solution
+- MTU is 110 so it can carry at max 90 bytes of data.
+- $\frac{176}{90} = 2$
+- `| 20 | 88 |`, `| 20 | 88 |`
+
+| | First | Second |
+|-| ----- | ------ |
+| Range | 176-263 | 264-351 |
+| FO | 22 | 33 |
+| D | 0 | 0 |
+| M | 1 | 1 |
+| TL | 108 | 108 |
+| ID | 50 | 50 |
+- For second m bit is 1 because there are other segments behind it as well, becasue the block from which the fragment is made has m bit set to 1.
+
+## Question
+FO = 22, M =1, HLEN=5, TL=108, ID=100. If MTU 0f N/W is 60. How many fragments will be generated & give values of all these 5 fields for each fragment.
+
+### Solution
+- HLEN 5 $\rightarrow$ 5*4=20
+- Total Length = 108, payload = 88bytes
+- Max Payload = 40 bytes
+- `| 20 | 40 |`, `| 20 | 40 |`, `| 20 | 8 |`
+- FO = 22 $\rightarrow$ 22*8= 176
+
+| | First | Second | Third |
+|-| ----- | ------ | ----- |
+| Range | 176-215 | 216-255 | 256-263 |
+| FO | 22 | 27 | 32 |
+| D | 0 | 0 | 0 |
+| M | 1 | 1 | 1 |
+| TL | 60 | 60 | 28 |
+| ID | 100 | 100 |100 |
+
+## Question
+If fragmentation is done for IP fragment which is not the last fragment of datagram then what will be the m bit value for the last fragment of given IP fragment?
+
+### Solution
+- Since the parent fragment is not last so m=1 for parent fragment
+- So, also m bit will be 1 for all the child fragments as there will be other fragments coming behind.
+- 
+## Question
+If fragmentation is done for IP fragment which is the last fragment of datagram then what will be the m bit value for the last fragment of given IP fragment?
+
+### Solution
+- 0
+
+## Question
+How reassembly is done at receiver?
+
+### Solution
+- Get all the fragments with same Identification field
+- Combine them according to the fragment offset
+- Now, there can be a possibility that the fragment is further divided into smaller fragments like 22 into 22,33,37
+- If only 22 is combined then we will miss the parts of 33,37.
+- For this purpose the rechecking is done,
+  - offset + $\frac{(T.L. of givenfragment - HLEN*4)}{8}$
+  - This method is done to recheck the offset of next segment
+  - Total length will be small for fragments further divided and so middle fragment offsets will also be considered in it.
+
+## Question
+Why FO is divided by 8?
+
+### Solution
+- It is a 13 bit field and for max size block 65512(65535-20)(three bits we removed to adjust for 8 divisibility) requires 16 bits to store so we divide by 8 to eliminate 3 bits which adjust the storage into 13 bits.
