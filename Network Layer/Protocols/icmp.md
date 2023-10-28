@@ -59,3 +59,54 @@
     - Suppose A wants to send packet to B which can be sent through router R1. 
     - When the machine boots if the every routing table entry is gone except of default router, then A sends packet to a default router say R2.
     - Now, this R2 directs the package to R1 and sends an Redirection error message to A to update it's routing table[where to send B send the packet to router R1].
+    - It is different from other error messages because here the packet is not dropped.
+
+## Query Messages
+- Query messages always work in pair i.e. request and reply format.
+
+## Types of Query Messages
+1. Echo request & Echo reply message:
+   - This messages are used to check the communication between sender ans receiver.
+   - S & R can be routers or hosts
+   - These are designed for diagnostic purposes.
+   - If S & R are communicating then it is the proof that intermediate routers are receiving, processing & forwarding datagrams properly.
+   - Ping command uses this msg
+     - Ex: ping 200.40.50.60
+     - It is called Packet Internet Groper
+     - It is not a client server application as it works at Network Layer.[GATE 2010]
+2. Time stamp Request & Reply:
+   - It is used to synchrinize the clocks of S & R.
+   - S & R can be in different part of world & hence their time may be different.
+   - It is obsolete, nowadays NTP [N/W Time Protocol] is used.
+3. Address mask Request & Reply:
+   - A host may move it's own IP address but doesn't know it's corresponding net mask. Hence, it can send Address mask request to router & router will send the corresponding netmask.
+   - NetMask can be used to find delivery is direct or indirect.
+     - First A station get's it's own netmask, then it checks with the IP of the other station by ANDing with netmask if the Net ID of A and other station is same then delivery is direct else indirect.
+4. Router Solicitation & Advertising:
+   - If host wants to send message to another host on different N/W then it must know address of right router to which packet must be sent.
+   - If that router is not working then host must have knowledge about the current status of router.
+   - For knowing current status host can broadcast router solicitation message.
+   - Routers which receive this msg broadcast their routing information using router advertisement msg.
+   - Router can also periodically send routing advertisement msg even if no host has asked.
+   - When router broadcast advertisement, it not only announces it's presence but it also gives information about all the routers to which it is aware[Also shares information of it's own routing table]
+
+## Question
+A: 130.40.140.60/16, B: 130.40.200.40/18 Which of the following is true?
+1. A will think  that B on it's N/W
+2. B will think that A on it's N/W
+3. both
+4. none
+
+### Solution
+- A's Netmask: 255.255.0.0
+- B's Netmask: 255.255.192.0
+- Net IDs by A netmask
+  - A: 130.40.0.0
+  - B: 130.40.0.0
+- Net IDs by B Netmask
+  - A: 130.40.128.0
+  - B: 130.40.192.0
+- Hence, by A's Netmask both got same NetID, so A will think that B on it's N/W.
+
+## Internet Group Message Protocol
+- It is iused for the multicasting purpose.

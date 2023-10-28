@@ -4,6 +4,7 @@
   - Header contains a field called checksum but it is not for checking data, it is for checking the header.
 - Provides the best effort delivery system.
 - Each Datagram can be transported seperately and can follow different routes.
+- IP is basically a unicasting protocol.
 
 ## IP Datagram
 - Total Datagram Size (20 - 65535)
