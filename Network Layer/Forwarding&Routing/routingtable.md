@@ -130,3 +130,24 @@ Packet bearing a destination address 144.16.68.117 arrives at the router. On whi
 - AND with 24: 144.16.68.0
   - Matched
 - Answer Eth2
+
+## Heirarchical Routing
+- Suppose there are 700 routers then there will be entry of each router in a single router.
+  - So, Total entries: 700*700 = 490000
+- Now, if we make region of each router
+  - Suppose each region contains of 10 routers.
+  - We will now have 69 regions.
+  - Each router will now have 69 entries of each region + 10 entries of each router in the region(To know which router is connected to which region)
+  - Number of Entries: 700*79 = 55,300
+- Now, suppose we make clusters each containing 10 regions
+  - We now will have 7 clusters
+  - Each router will now contain: 10 entries for each router in region + 9 entries of each region + 6 entries of ither clusters
+  - Total Entries of each router: 25
+  - Total entries: 700*25 = 17,500
+
+## Formulas
+- Number of entries in each router: No. of routers in region + (Number of Regions - 1) + (Number of Clusters -1)
+- Total Number of Entries: Total Number of entries * No. of entries for each router.
+
+## Geographical Routing
+To decrease the size of the routing table even further, we need to extend hierarchical routing to include geographical routing. We must divide the entire address space into a few large blocks. We assign a block to North America, a block to Europe, a block to Asia, a block to Africa, and so on. The routers of ISPs outside Europe will have only one entry for packets to Europe in their routing tables. The routers of ISPs outside North America will have only one entry for packets to North America in their routing tables. And so on.
