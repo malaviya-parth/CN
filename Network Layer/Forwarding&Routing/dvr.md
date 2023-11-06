@@ -190,3 +190,66 @@ Which edge will be never used?
 - In 2nd step, 2 atmost edges are involved.
 - In (n-1)th step, atmost (n-1)edges are involved.
 - Since, DVR is a kind of Adaptive [Dynamic] Routing algorithm so it won't stop even after (n-1) steps rather routers keep on exchanging tables periodically because some router may fail pr link may go down, etc.
+
+## Question
+Distance Vector routing is used, and the following vectors have just come in to router C: from B: (5,0,8,12,6,2); from D: (16,12,6,0,9,10); and from E: (7,6,3,9,0,4). The measured delays to B,D, and E, are 6,3, and 5, respectively. What is C's new routing table? Give both the outgoing line to use and the expected delay.
+![Alt text](image-4.png)
+
+### Solution
+C's Table
+
+| To | Delay | Line |
+| -- | ----- | ---- |
+| A  |  11   |  B   |
+| B  |  6    |  B   |
+| C  |  0    |  C   |
+| D  |  3    |  D   |
+| E  |  5    |  E   |
+| F  |  8    |  B   |
+
+## Question (UGC-NET)
+Distanc vector routing algorithm is a dynamic routing algorithm. THe routing tables in distance vector routing algorithm are updated ____ .
+1. automatically
+2. by server
+3. by exchanging information with neighbour nodes
+4. with back-up database
+
+### Solution
+- Option C.
+
+## GATE 2011
+THe network uses a DVR protocol. Once the routes have been stabilized, the distance vectors at different nodes are as follows.
+N1: (0,1,7,8,4)  
+N2: (1,0,6,7,3)  
+N3: (7,6,0,2,6)  
+N4: (8,7,2,0,4)  
+N5: (4,3,6,4,0)  
+Each distance vector is the distance of the best known path at that instant to nodes, N1 to N5, where the distance to itself is 0. Also, all links are symmetric and cost is identical in both directions. In each round, all nodes exchange their distance vectors with their respective neighbours. Then all nodes update their distance vectors. In between two rounds, any change in cosr od a link will cause the two incident nodes to change inly that entry in their distance vectors. The cost of link N2 - N3 reduces to 2. After next round of updates what will be the distance vector at node, N3?
+![Alt text](image-5.png)
+
+### Solution
+- N2 will give table: (1,0,2,7,3)
+- Now after updating link distance N3 will have: (3,2,2,9,5) from N2.
+- Therefore, N3 table will be now: (3,2,0,2,5)
+
+## GATE 2021
+Consider a computer network using the dvr algorithm. The partial topology of the network is shown below.
+![Alt text](image-6.png)  
+The objective is to find the shortest-cost path from router R to routers P and Q. Assume that R does not initially know the shortest routes to P and Q. Assume that R has three neighbouring routers denoted as X, y and Z. During one iteration, R measures it's distance to its neighbours X, Y and Z as 3, 2 and 5, respectively. Router R gets routing vectors from its neighbours that indicate that the distance to router P from routers X,Y and Z are 7,6 and 5, respectively. The routing vecotr also indicates that the distance to router Q from routers X,Y and Z are 4,6 and 8. Which of the following statement(s) is/are correct with respect to new routing table of R, after updation during this iteration?
+1. The distance from R to P will be stored as 10.
+2. The distance from R to Q will be stored as 7.
+3. The next hop router for a packet from R to P is Y.
+4. The next hop router for a packet from R to Q is Z.
+
+### Solution
+- Option 2,3 are correct
+
+## Question
+Distance vector routing works as
+1. optimal cost finally converges to estimated cost after series of message exchange
+2. estimated cost finally converges to optimal cost after series of message exchange
+3. Estimated message will never converge to optimal cost.
+4. None
+
+### Solution
+- Option B
