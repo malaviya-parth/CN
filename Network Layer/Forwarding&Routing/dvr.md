@@ -253,3 +253,33 @@ Distance vector routing works as
 
 ### Solution
 - Option B
+
+## Type of Updates
+- There are two type of updates
+  1. Periodic Updates (Studied till now)
+  2. Triggered Updates
+    - Any change in table, don't wait for periodic update time, just share immediately the updated changed table with the neighbours.
+
+## Count to infinity Problem
+- Suppose below is the situation and table entries for r1 are shown.
+![Alt text](image-7.png)
+- Now if link b/w R1 and R2 is broken updated entries will be 
+  - R1: 0 R1, R2: inf -, R3: 2 R2
+- Now, according to type of updates discussed above, change in entry of table in R2 will fire triggered update, hence updated table of all will be:
+  - R1: 0 R1; R2: inf -; R3: inf -;
+- This is the situation that triggered updated happened before periodic update.
+- If periodic update happens before triggered update then, updated table will be
+  - R1: 0 R1; R2: 3 R3; R3: 4 R2;
+  - R1: 0 R1; R2: 5 R3; R3: 6 R2;
+- Upon every exchange there value will increase, this causes count to infinity problem.
+
+## If no triggered updates
+- If only periodic updates are done still it will encounter count to infinity problem
+  - R1: 0 R1; R2: inf -; R3: 2 R2;
+  - R1: 0 R1; R2: 3 R3; R3: inf -;
+  - R1: 0 R1; R2: inf -; R3: 4 R2;
+  - R1: 0 R1; R2: 5 R3; R3: inf -;
+- So on...
+
+## 4 Routers Count to infinity
+![Alt text](image-8.png)
