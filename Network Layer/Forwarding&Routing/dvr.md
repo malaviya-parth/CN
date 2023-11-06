@@ -232,6 +232,12 @@ Each distance vector is the distance of the best known path at that instant to n
 - Now after updating link distance N3 will have: (3,2,2,9,5) from N2.
 - Therefore, N3 table will be now: (3,2,0,2,5)
 
+## Question Continued
+After the update in the previous question, the link N1-N2 goes down. N2 will reflect this change immediately in its distance vector as cost inf. After the NEXT ROUND of update, what will be the cost to N1 in the distance vector of N3?
+
+### Solution
+- 10, due to the table received from N4 will have value 8 to reach N1.
+
 ## GATE 2021
 Consider a computer network using the dvr algorithm. The partial topology of the network is shown below.
 ![Alt text](image-6.png)  
@@ -283,3 +289,18 @@ Distance vector routing works as
 
 ## 4 Routers Count to infinity
 ![Alt text](image-8.png)
+
+## Problem due to count ot infinity
+- Due to this problem, the packet roams from one place to other and then back again to first place. This process goes on upto infinite time and congestion increases.
+
+## Solution
+1. Defining Infinity:
+   - The first solution is to redefine to a smaller number such as 16. As a matter of fact, most implementations of the DVR define 16 as infinity. However, this means that distance vector cannot be used in large systems. The size of network, in each direction, can not exceed 15 hops.\
+2. Split Horizon:
+   - In this strategy, instead of flooding the table through each interface, each node sends only part of its table through each interface. If, according to its table, node B thinks that the optimum route to reach X is via A, it does not need to advertise this piece of information to A; the information has come from A(A already knows). Taking information from node A, modifying it, and sending it back to node A is what reates the confusion.
+   - This works in case of 2 nodes misunderstanding, if there is 3 nodes misunderstanding connected in a triangle, it will not work.
+3. Poison Reverse:
+   - When a route fails, do not wait for next periodic update. Instead send an immediate triggered update listing the poisoned route & all the routers which receives this update will broadcast the same so that all routers get knowledge about poisoned route as fast as possible.
+4. Split Horizon with Poison Reverse:
+   - Using the split horizon strategy has one drawback. Normally, the DVR uses a timer, and if there is no news about a route, the node deletes the route from its table. When node B in the previous scenario eliminates the route to X from it's adverstisement to A, node A cannot guess that this is due to the splithorizon strategy or because B has not received any news about X recently. The split horizon strategy can be combined with the poison reverse strategy. Node B can still advertise the value for X, but if the source of information is A, it can replace the distance with infinity as a warning: "Do not use this value; what I know about this route comes from you."
+  - This works in case of 2 nodes misunderstanding, if there is 3 nodes misunderstanding connected in a triangle, it will not work.
