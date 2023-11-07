@@ -44,3 +44,31 @@
 - UDP Data is paded if it is not multiple of 16.
 - **After checksum calculation the pseudoheader and padding is discarded before sending user datagram to the IP.**
 - If we don't want to calculate checksum we fill that field with all 1's.
+
+## UDP Operation
+### Connectionless
+- If from same sender to same receiver multiple packets are going still there will be no relation between those packets, i.e. each of them are independent datagram.
+- Each datagram can travel on a different path.
+- As each of them are independent, processes that uses UDP cannot send stream of data to UDP and expect UDP to chop them into different related user datagrams.
+- Each request must be small to fit in User Datagram
+### Flow & Error Control
+- There is no Flow control.
+  - The receiver may overflow with incoming messages.
+- The is no error control except checksum.
+  - The sender do not know if message is lost or duplicated.
+  - If there is error at receiver side, it silently discard the packet.
+#### Queueing
+- There are queues associated with the ports.
+- Each process have incoming and outgoing queue to send and receive message.
+- Queues are mapped with port numbers. Queues are closed when process terminates.
+- UDP takes and gives messages from the queue.
+- If outgoing queue is full OS helps by asking client process to wait before sending any new messages.
+- WHen message arrive UDP check if mapped incoming queue is there or not, if not then it sends port unreachable message through ICMP.
+- If incoming queue overflow then UDP drops user datagram and asks for port unreachable message to be sent to the server.
+
+## Uses
+- Processes which require simple request-response mechanism.
+- Processes with internal flow and error control.
+- Suitable for multicasting.
+- Used for route updating protocols such as RIP.
+- Used by SNMP.
