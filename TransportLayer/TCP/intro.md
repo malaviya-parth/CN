@@ -41,6 +41,21 @@
 ### Wrap Around Time
 - Time needed to use same byte number which is already used.
 - It depends on Bandwidth.
+### LifeTime of Packet
+- Life time of packet in Internet is genrally 3 min.
+- Which means in worst case lost packet can arrive at receiver in 3 min.
+- If wrap around time is more than Life time then no issue will be there because until the same packet number chance come to be used meanwhile the old packet will be destroyed, so receiver can differentiate the packets.
+- But if wrap around time is not more than Life time than another packet carrying other data but with same sequence number can come to receiver and receiver may mistake it as previous required segment.
+  - Here Problem of duplicacy occurs.
+![Alt text](image-1.png)
+### Solution to Less Wrap around time problem
+1. Decrease Bandwidth: Not a good solution as user want more & more Bandwidth.
+2. Increase No. of bits to label bytes: Not possible as S.N. is fixed i.e. 32 bits but still we can use 32 bit option called timestamp for this purpose & hence now we have 32+32=64 bits to label the bytes.
+   - Extra MSB goes to timestamp option
+   - LSBs go to Seq no.
+   - Ex: 34 00110....11
+     - 00 goes to timestamp
+     - 110...11 goes to Seq no.
 
 ## Question
 Application program need to send 5000 bytes data, TCP divide it into 5 segments of equal size. Initial sequence number is 10,000. Find sequence number of 3rd segment. Also find ACK no. sent by receiver after receiving 2nd segment.
@@ -109,3 +124,26 @@ Consider a long lived TCP session with an end-to-end bandwidth of 1 Gbps. The se
 ### Solution
 - Answer: $\frac{2^{35}}{10^{9}}$ = 34.36 seconds
 - Answer: 35 to clost integer, we took ceil value here as 34.3 is the least time required so to closest integer the time must be more than that.
+
+## Question
+How many extra bits are needed for SN if B/W is 1GBps & LT is 3 min.
+
+### Solution
+- Wrap around time if B/W is 1 GBps
+  - 4 seconds
+- We need at time more than 180 seconds
+- if 1 bit increased
+  - 8GB/1GBps
+  - WAT: 8 seconds
+- if 2 bits increased
+  - WAT: 16 seconds
+- if 5 bits increased
+  - WAT: 128 seconds
+- if 6 bits increased
+  - WAT:  256 seconds
+- Therefore 6 extra bits are needed.
+- Other way we need bits to represent number $ 180 \times 10^{9}$
+  - Bits required: $2^{y-1}-1 \lt (x-1) \leq 2^{y}-1$
+  - y = ceil(log(x)); [base2]
+  - y = floor(log(x-1))+1: [base2]
+  - y = 38 bits (6 bits extra)
