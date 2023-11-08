@@ -11,7 +11,7 @@
 - TCP has both flow and error control.
 - For flow control there will be byte oriented sliding window protocol.
 
-## TCP Header ⭐⭐⭐
+## TCP Header ⭐
 - Minimum 20 bytes and maximum 60 bytes.
 ![Alt text](image.png)
 - Source Port address 16 bit field used to identify application program in host sending the segment.
@@ -56,6 +56,43 @@
    - Ex: 34 00110....11
      - 00 goes to timestamp
      - 110...11 goes to Seq no.
+### Acknowledgement Number
+- Last byte no. carried in segment +1
+- **Problem:** How will receiver calculate ACK no as there is no field in TCP header which states length of segment.
+  - It takes help of IP header
+  - Payload length of IP = TL - HLEN(packet)*4
+  - Payload length of segment = Payload of IP - HLEN(segment)*4
+  - ACK no.: (SeqNo. + P.L. -1) + 1 $\rightarrow$ SeqNo. + P.L.
+### Header Length
+- Same as IP header
+### Reserved
+- 6 bit field reserved for future use.
+### Control
+- This field defines 6 different control bits or flags.
+- URG: Urgent
+- ACK: Acknowledgement
+- PSH: Request for Push
+- RST: Reset the connection
+- SYN: Synchronize sequence Numbers
+- FIN: Terminate the connections
+- You are perfect reliable sincere friend
+### Window Size
+- This field defines size of window in bytes that other party must maintain.
+- 16 bit field, so max window size can be 65,535 bytes.
+- This is normally determined by the receiver, for receiving window size.
+- Suppose sender sends segment and sets window size to 400, it means when receiver responds to sender then receiver must send data not more than 400 Bytes.
+### Checksum
+- 16 bit field.
+- Checksum calculation smae as UDP.
+- For TCP pseudoheader protocol value is 6.
+- Here inclusion of checksum is mandatory.
+### Urgent Pointer
+- Valid when URG flag is set.
+- 16 bit field.
+- Used when the segment contains urgent data.
+- It defiens number that must be added to sequence number to obtain the number of last urgent byte in the data section of the segment.
+### Options
+- Upto 40 bytes optional info in TCP header.
 
 ## Question
 Application program need to send 5000 bytes data, TCP divide it into 5 segments of equal size. Initial sequence number is 10,000. Find sequence number of 3rd segment. Also find ACK no. sent by receiver after receiving 2nd segment.
@@ -147,3 +184,36 @@ How many extra bits are needed for SN if B/W is 1GBps & LT is 3 min.
   - y = ceil(log(x)); [base2]
   - y = floor(log(x-1))+1: [base2]
   - y = 38 bits (6 bits extra)
+
+## GATE 2022
+Consider the data transfer using TCP over a 1 Gbps link. Assuming that maximum segment lifetime is set to 60 seconds, the minimum number of bits fro the sequence number field of the TCP header, to prevent the sequence number space from wrapping around during the MSL is __.
+
+### Solution
+- Life time is 60 seconds so wrap around must be more than that.
+- In one sec $10^{9}$bits flow, so in 60 seconds $60 \times 10^{9}$ bits flow
+  - $7.5 \times 10^{9}$ bytes flow, so we need bits to number all those bytes that we do not encounter wrap around.
+- To represent number $\frac{60 \times 10^{9}}{8}$ = $2^{3} \times 2^{30}$ = 33 bits
+
+## GATE 2023 ⭐
+Suppose you are asked to design a new reliable byte-stream transport protocol like TCP. This protocol, named myTCP, runs over a 100 Mbps network with Round Trip Time of 150 milliseconds and the maximum segment lifetime of 2 minutes.
+Which of the following is/are valid lengths of the Sequence Number field in the myTCP header?
+1. 30 bits
+2. 32 bits
+3. 34 bits
+4. 36 bits
+
+### Solution
+- In one second $10^{8}$ bits flow
+- In 120 seconds, $120 \times 10^{8}$ bits flow
+  - $15 \times 10^{8}$ bytes flow = $1500 \times 10^{6}$
+- We need to number all of the hence bits required will be $2^{11} \times 2^{20}$ = 31 bits
+- Hence we must have minimum 31 bits in sequence header.S
+- So answers are 32,34,36 bits
+
+## Question
+TL of datagram = 1000, HLEN of datagram = 5, HLEN of segment = 5, SN of segment = 500, ACK no?
+
+### Solution
+- Payload of IP = 1000 - 5*4 = 980
+- Payload of TCP = 980 - 5*4 = 960
+- ACK No: 500 + 960 = 1460

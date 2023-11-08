@@ -75,3 +75,13 @@
 | Count to inf prob | No Count to inf prob |
 | RIP protocol | OSPF Protocol |
 | Less Calculations | More Calculations |
+
+## GATE 2023 ⭐
+Which of the following statements is/are INCORRECT about the OSPF (Open Shortest Path First) routing protocol used in the Internet?
+1. OSPF implements Bellman-Ford algorithm to find shortest paths.
+2. OSPF uses Dijkstra’s shortest path algorithm to implement least-cost path routing.
+3. OSPF is used as an inter-domain routing protocol.
+4. OSPF implements hierarchical routing.
+
+### Solution
+- 1,3
