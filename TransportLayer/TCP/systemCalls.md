@@ -35,3 +35,14 @@
 - Used by TCP and not UDP.
 ### sendto() and recvfrom()
 - Same as send() and recv() but here services of UDP are used.
+### close()
+- Used to close a socket.
+- No more read and write to the socket.
+- To have more control over socket closing shutdown() function can be used.
+  - Apart from closing communication both ways like close(), it also allows to cut communication in certain direction as well.(Half Close)
+  - FIN uses shutdown()⭐
+  - RST uses close()⭐
+## Sequence of TCP
+![Alt text](image-15.png)
+## Sequence of UDP
+![Alt text](image-16.png)
