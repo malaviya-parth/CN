@@ -39,6 +39,17 @@
 - Here both Client and Server goes under SYN-SENT and SYN-RCVD state.
 - Note that here the SYN+ACK packet has same sequence number as that of SYN.
 
+### Simultaneous Close (Rare Case)
+![Alt text](image-12.png)
+- Here after sending FIN the sender waits for ACK to come but instead a FIN comes that's why the sender goes to a new state CLOSING.
+- Suppose peer1 sends FIN with ACK(last message) SeqNo: 100, ACKNo:500
+- Peer2 on the same time sends FIN with ACK(last message) with SeqNo: 500, ACKNo: 100
+- Here too the sender receives FIN+ACK, but here the ACKNo: 100, which the peer1 already sent
+  - From this it understands that server has sent FIN+ACK before receiving the FIN sent by peer1.
+  - Same is for the Peer2
+  - Hence, they go to the CLOSING state instead of FIN-WAIT-2 or TIME-WAIT state.
+- Now after sending ACK they both go to TIME-WAIT state.
+
 ### Time Out
 - The time out time is 2 maximum segment lifetime, like if client sent ACK but not received by server than within 2MSL the server will again send FIN packet which indicates that the ACK packet sent by the client is lost.
   - Client resend the ACK and 2MSL timer is reset.
