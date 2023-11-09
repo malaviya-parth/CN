@@ -41,3 +41,6 @@
 |  0  |  1  | ACK/Data Packet |
 |  0  |  0  | Reset Connection |
 - For GATE purpose consider 0 0 as invalid state.
+
+## Note 
+> Im TCP SYN packet data is never sent.
