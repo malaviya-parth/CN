@@ -14,7 +14,7 @@
 | TIME-WAIT | Second FIN received, ACK sent; waiting for 2MSL time-out |
 | LAST-ACK | Second FIN sent; waiting for ACK |
 | CLOSING | Both Sides decided to close simultaneously |
-### 3-Wayy handshaking Establishment and 4-way handshaking termination
+### 3-Way handshaking Establishment and 4-way handshaking termination
 ![Alt text](image-7.png)
 - TCP has two types of Input, Local input and remote Input.
   - Active open, Active close, Passive open, etc. are local input
@@ -26,6 +26,13 @@
 ![Alt text](image-8.png)
 - Closed(Active open/SYN) -> SYN-SENT(SYN+ACK/ACK) -> Established(Active Close/FIN) -> FIN-WAIT-1(ACK/-) -> FIN-WAIT-2(FIN/ACK) -> TIME-WAIT(Time-out) -> CLOSED
 - Closed(Passive open/-) -> LISTEN(SYN/SYN+ACK) -> SYN-RCVD(ACK/-) -> ESTABLISHED(FIN/ACK) -> CLOSE-WAIT(Passive Close/FIN) -> LAST-ACK(ACK/-) -> CLOSED
+
+### 3-way handshaking termination
+![Alt text](image-9.png)
+- Here immediately the ACK+FIN is not sent rather server waits for some time.
+- Packet is sent after passive close request from server process packet is sent.
+- After the FIN+ACK received by the client, it immediately sends the ACK.
+![Alt text](image-10.png)
 
 ### Time Out
 - The time out time is 2 maximum segment lifetime, like if client sent ACK but not received by server than within 2MSL the server will again send FIN packet which indicates that the ACK packet sent by the client is lost.
