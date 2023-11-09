@@ -27,12 +27,17 @@
 - Closed(Active open/SYN) -> SYN-SENT(SYN+ACK/ACK) -> Established(Active Close/FIN) -> FIN-WAIT-1(ACK/-) -> FIN-WAIT-2(FIN/ACK) -> TIME-WAIT(Time-out) -> CLOSED
 - Closed(Passive open/-) -> LISTEN(SYN/SYN+ACK) -> SYN-RCVD(ACK/-) -> ESTABLISHED(FIN/ACK) -> CLOSE-WAIT(Passive Close/FIN) -> LAST-ACK(ACK/-) -> CLOSED
 
-### 3-way handshaking termination
+### 3-way handshaking termination (Not much important)
 ![Alt text](image-9.png)
 - Here immediately the ACK+FIN is not sent rather server waits for some time.
 - Packet is sent after passive close request from server process packet is sent.
 - After the FIN+ACK received by the client, it immediately sends the ACK.
 ![Alt text](image-10.png)
+
+### Simultaneous Open (Rare Case)
+![Alt text](image-11.png)
+- Here both Client and Server goes under SYN-SENT and SYN-RCVD state.
+- Note that here the SYN+ACK packet has same sequence number as that of SYN.
 
 ### Time Out
 - The time out time is 2 maximum segment lifetime, like if client sent ACK but not received by server than within 2MSL the server will again send FIN packet which indicates that the ACK packet sent by the client is lost.
