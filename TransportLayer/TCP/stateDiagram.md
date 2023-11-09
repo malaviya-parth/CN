@@ -24,8 +24,13 @@
 - If server is in closed state, server replies with RST and says to reset the connection.
 #### Client and Server Side series of States
 ![Alt text](image-8.png)
-- Closed(Active open/SYN) -> SYN-SENT(SYN+ACK/ACK) -> Established(close/FIN) -> FIN-WAIT-1(ACK/-) -> FIN-WAIT-2(FIN/ACK) -> TIME-WAIT(Time-out) -> CLOSED
-- Closed(Passive open/-) -> LISTEN(SYN/SYN+ACK) -> SYN-RCVD(ACK/-) -> ESTABLISHED(FIN/ACK) -> CLOSE-WAIT(Close/FIN) -> LAST-ACK(ACK/-) -> CLOSED
+- Closed(Active open/SYN) -> SYN-SENT(SYN+ACK/ACK) -> Established(Active Close/FIN) -> FIN-WAIT-1(ACK/-) -> FIN-WAIT-2(FIN/ACK) -> TIME-WAIT(Time-out) -> CLOSED
+- Closed(Passive open/-) -> LISTEN(SYN/SYN+ACK) -> SYN-RCVD(ACK/-) -> ESTABLISHED(FIN/ACK) -> CLOSE-WAIT(Passive Close/FIN) -> LAST-ACK(ACK/-) -> CLOSED
+
+### Time Out
+- The time out time is 2 maximum segment lifetime, like if client sent ACK but not received by server than within 2MSL the server will again send FIN packet which indicates that the ACK packet sent by the client is lost.
+  - Client resend the ACK and 2MSL timer is reset.
+- To handle this lost packet cases of ACK after FIN client wait for 2MSL, if within 2MSL if FIN by server not comes, client understand that the packet might have reached the server and connection is successfully terminated.
 
 ## Question
 Suppose Client sneds SYN but it does not reach to the server what state the client will be?
