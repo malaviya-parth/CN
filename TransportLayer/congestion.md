@@ -1,0 +1,44 @@
+## Congestion Control
+- Internet can be considered as a Queue of packets, where transmitting nodes are constantly adding packets and some of them are removing packets from the queue.
+- So, consider a situation where too many packets are present in this queue, such that constantly transmitting nodes are pouring packets at a higher rate than receiving nodes are removing them. This degrades the performance, and such a situation is termed as Congestion.
+- Main reason of congestion is more number of packets into the network than it can handle.
+- So, the objective of congestion control can be summarized as to maintain the number of packets in the network below the maximum level at which performance falls off dramatically.
+- Initially number of packets delivered is propotional to the number of packets sent. However, as traffic increases too far, the routers are no longer able to cope and they begin losing packets. This tends to make matters worse. At very high traffic, performance collapses completely and almost no packets are delivered.
+
+## Cause of Congestion
+- Congestion happens in any system that involves waiting. For example, congestion happens on a freeway because any abnormality in the flow, such as an accident during rush hour, creates blockage.
+- Congestion in a network or internetwork occurs because routers and switches have queues-buffers that hold the packets before and after processing. A router, for example, has an input queue and an output queue for each interface.
+- When a packet arrives at the incoming interface, it undergoes three steps before departing:
+    1. The packet is put at the end of the input queue while waiting to be checked.
+    2. The processing module of the router removes the packet from the input queue once it reaches the front of the queue and uses it's routing table and the destination address to find the route.
+    3. The packet is put in the appropriate output queue and waits it's turn to be sent.
+- We need to be awar of two issues:
+  - if the rate of packet arrival is higher than the packet processing rate, the input queue becomes longer and longer.
+  - if packet departure rate is less than packet processing rate, the output queues become longer and longer.
+- If there is insufficient memory to hold these packets, then packets will be lost. Adding more also may not help in certain situations.
+- If router have infinite amount of memory even then instead of congestion being reduced, it get's worse. Because by the time packets gets at the head of the queue, to be dispatched out to the output line, they have already timed-out(repeatedly), and duplicates may also be present(multiple copies of same packet will be sent by sender due to timeout).
+- All the duplicate packets will be forwarded to next router up to the destination, all the way only increasing the load of the network more and more. Finally, when it arrives at the destination, the packet will be discarded, due to time out, so instead of been dropped at any intermediate router such a packet goes all the way up to the destination, increasing network load throughout and finally gets dropped there.
+- So, the major cause of congestion is often the bursty nature of traffic. If hosts could be made to transmit at a uniform rate, then congestion problem will be less common and all other causes will not led to congestion.
+- When a device sends a packet and does not receive an acknowledgement from the receiver, in most of the cases it can be assumed that the packets have been dropped by intermediate devices due to congestion. By detecting the rate at which segments are sent and not acknowledged, the source or an intermediate router can infer the level of congestion on the network.
+
+## Traffic Shaping
+- Traffic shaping is a mechanism to control the amount and rate of the traffic sent to the network.
+- Two techniques:
+  1. Leaky Bucket
+  2. Token Bucket
+
+### Leaky Bucket
+- If a bucket has a small hole at the bottom, the water leaks form the bucket at a constant rate as long as there is water in the bucket. The rate at which the water leaks does not depend on the rate at whic hthe water is input to the bucket unless the bucket is empty. The input rate may vary but the output rate is constant.
+- Also, once the bucket is full any additional water entering it spills over the sides and is lost. Similarly, in networking a technique called leaky bucket can smooth out bursty traffic. Busty chunks are stored in the bucket and sent out at an average rate.
+- Let us assume that the network has committed a bandwidth of 3 Mbps for a host. The use of the leaky bucket shapes the input traffic to make it conform to this commitment. The host sends a burst of data at a rate of 12 Mbps for 2s, for a total of 24 Mbits. The host is silent for 5s and then sends data at a rate of 2 Mbps for 3s for a total of 6 Mbits of data. In all host send 30 Mbits of data in 10s.
+- The leaky bucket smooths the traffic by sending out data at a rate of 3Mbps during the same 10s. Without the leaky bucket, the beginnning burst may have hurt the network by consuming more bandwidth than is set for this host.
+- We can also see that the leaky bucket may prevent congestion. As an analogy, consider the highway during office. If instead, people could change their working hours congestion on our highways could be avoided.
+
+## Question
+A leaky bucket is used to shape the traffic. The host sends a burst of data at a rate of 12 Mbps for 2s then it is silent for 5s and then sends data at a rate of 2Mbps for 3s. If network can handle data @ 3Mbps only. How much time is needed to send this data using leaky bucket also find capacity of bucket.
+
+### Solution
+- Total data received is 30 Mbits.
+- after one sec 3Mbits, ..., after 7 secs 21 Mbits, 8 secs 24 Mbits, 9 secs 27 Mbits, 10 secs 30 Mbits.
+- Hence, it will take 10 seconds.
+- Maximum Data in buffer can be at 2nd second i.e. 6 + 12 = 18 Mbits
