@@ -50,6 +50,19 @@ On a TCP connection, current congestion window size is Congestion Window = 4KB. 
   - 4,5,6 is congestion Avoidance phase (additive increase)
 - In Congestion avoidance phase Wc increases linearly till time out occur or it reaches Wr.
   - Window Size increases 4,5,6,7,8,8,8,...
+- Till now we don't consider case of time out i.e. what if packet is lost or it's ACK is lost [unsuccessful transmission]
+- In this case the AIMD enters 3rd phase called congestion detection [multiplicative decrease]
+- Hence AIMD has 3 phases
+  1. Slow start [ Exponential increase till Wr/2 ]
+  2. Congestion Avoidance [ Additivie increase till Wr or TimeOut or 3 duplicate ACK ]
+  3. Congestion detection [ multiplicative decrease ]
+### Congestion Detection
+- If Congestion Detection is due to Time Out,
+  - New Threshold = Wc/2
+  - Slow start phase is started
+- If Congestion Detection is due to 3 Dup ACKs
+  - New Threshold = Wc/2
+  - Congestion avoidance phase starts from new threshold only.
 
 ## Question
 After how many RTT Wc = Wr? Wr = 8 KB, MSS = 1 KB
@@ -73,3 +86,56 @@ Wr = 16 KB, MSS = 1 KB. After how many RTT Wc becomes Wr i.e. Wc will have max c
 - Threshold = 8 MSS
 - Wc = 1,2,4,8,9,10,11,12,13,14,15,16
 - Therefore after 11 RTTs.
+
+## Question
+Wr = 64 KB, MSS = 1 KB
+1. When Wc = 34 KB, Time Out occurred
+2. When Wc = 20 KB, 3 duplicate ACK arrived
+3. When Wc = 12 KB, Time Out occurred
+4. When Wc = 64 KB, Time Out occurred
+5. When Wc = 32 KB, 3 duplicate ACK arrived
+6. When Wc = 17 KB, Time Out occurred
+
+### Solution
+- Threshold = 32 MSS
+- Wc = 1,2,4,8,16,32,33,34 (Con 1 hit)
+1. Threshold = 17 MSS
+   - 1,2,4,8,16,17,18,19,20 (Con 2 hit)
+2. Threshold = 10 MSS
+   - 10,11,12 (Con 3 hit)
+3. Threshold = 6 MSS
+   - 1,2,4,6,7,8,9,10,...,62,63,64 (Con 4 hit)
+4. Threshold = 32 MSS
+   - 1,2,4,8,16,32 (Con 5 hit)
+5. Threshold = 16 MSS
+   - 16,17 (Con 6 hit)
+6. Threshoold = 8 MSS
+   - 1,2,4,8,9,10,11,...,62,63,64,64,64,...
+
+## GATE 2012
+Consider an instance of TCP's Additive Increase Multiplicative Decrease(AIMD) algorithm where the window size at the start of the slow start phase is 2 MSS and the threshold at the start of the first transmission is 8 MSS. Assume that a time out occurs during the fifth transmission. Find the congestion window size at the end of the tenth transmission.
+1. 8 MSS
+2. 14 MSS
+3. 7 MSS
+4. 12 MSS
+
+### Solution
+- 2,4,8,9,10,2,4,5,6,7
+- Hence the window size at end of tenth transmission is 7 MSS
+- Here it is asked after transmission, if it asked after tenth RTT then it will be 8 MSS.
+
+## GATE 2014
+Let the size of congestion window of a TCP connection be 32 KB when a timeout occurs. The round trip of the connection is 100 ms and the maximum segment size used is 2 KB. The time taken (in ms) by the TCP connection to get back to 32 KB congestion window is __.
+1. 1100 to 1300
+2. 800 to 1000
+3. 1400 to 1600
+4. 1500 to 1700
+
+### Solution
+- MSS = 2 KB
+- Time out at 16 MSS
+- Threshold = 8 MSS
+- Again as Time Out occured so we need to do slow start
+- 1,2,4,8,9,10,11,12,13,14,15,16
+- Total it took 11 RTT to reach 16 MSS = 32 KB
+- Therefore time taken = 1100 to 1300 ms
