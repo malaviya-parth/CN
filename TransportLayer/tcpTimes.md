@@ -36,5 +36,26 @@
   - Finding Tp,TT,QT,PT, etc of each node is difficult
   - Segments are encapsulated in datagram & it may travel via different path so some times RTT decreases and some time RTT increases.
   - At different time we have different amount of traffic like at 6 am 10 ms and at 6 pm 40 ms.
-  - Considering all these factors, static Time out timer will not work for TCP.
-  - We need dynamic Time out timer for TCP which can increase or decrease according to the traffic.
+- Considering all these factors, static Time out timer will not work for TCP.
+- We need dynamic Time out timer for TCP which can increase or decrease according to the traffic.
+### Basic Algorithm
+- Time Out = 2 * RTT
+- NRTT = $\alpha \times IRTT + (1-\alpha) \times ARTT$ [$\alpha$ is weight factor($0 \leq \alpha \leq 1$)]
+  - NRTT = Next Round Trip Time
+  - IRTT = Initial Round Trip Time (What we thought)
+  - ARTT = Actual Round Trip Time (What actual came out)
+- Generally $\alpha = \frac{7}{8}$, we give more priority to Predicted RTT rather than Actual RTT.
+  - Same as in Stock Market we give calculations more priority than Current Price.
+  - If $\alpha = \frac{1}{2}$, we give equal priority to both.
+$$PRTT_{n+1} = \alpha \times PRTT_{n} + (1-\alpha) \times ARTT_{n}$$
+- Using Recurrence Relation and keep on substituting $PRTT_{n}$, at last step we reach $PRTT_{1}$ which is genrally given in the question for the solving purpose.
+  - Generally $PRTT_{1}$ is calculated during connection establishment when SYN flag is sent and ACK is received for it.
+#### Example
+- PRTT1 = 10 ms, $\alpha = \frac{1}{2}$, ARTT1 = 15 ms
+- TimeOut1 = 20 ms
+- PRTT2 = 5 + 7.5 = 12.5 ms
+- TimeOut2 = 25 ms
+#### Example
+- PRTT1 = 10ms, ARTT1 = 15, ARTT2 = 20, ARTT3 = 10, PRTT4 = ?, T.O.4 = ?
+- PRTT4 = $(\frac{1}{8} \times 10) + (\frac{1}{8} \times 15) + (\frac{1}{4} \times 20) + (\frac{1}{2} \times 10)$ = 1.25 + 1.875 + 5 + 5 = 13.125
+- TO = 26.25
