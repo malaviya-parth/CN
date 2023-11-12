@@ -59,3 +59,24 @@ $$PRTT_{n+1} = \alpha \times PRTT_{n} + (1-\alpha) \times ARTT_{n}$$
 - PRTT1 = 10ms, ARTT1 = 15, ARTT2 = 20, ARTT3 = 10, PRTT4 = ?, T.O.4 = ?
 - PRTT4 = $(\frac{1}{8} \times 10) + (\frac{1}{8} \times 15) + (\frac{1}{4} \times 20) + (\frac{1}{2} \times 10)$ = 1.25 + 1.875 + 5 + 5 = 13.125
 - TO = 26.25
+
+### Jacobson Algorithm for calculating T.O. timer:
+- Basic algo says $TO_n = 2 * PRTT_n$
+- Jacobson's algo says T.O. = 4 * $D_n$ + PRTT
+- $D_n$ = Deviation for $n^{th}$ packet = |$PRTT_n - ARTT_n$|
+- To calculate RTT same formula as Basic i.e. $PRTT_{n+1} = \alpha PRTT_n + (1-\alpha)ARTT_n$
+- To calculate deviation same formula used i.e. $PD_{n+1} = \alpha PD_n + (1-\alpha)AD_n$
+- $D_1 and RTT_1$ will be given in the question
+- For this shortcut will not work, we need to go step by step as $AD_n$ require $PRTT_n$.
+#### Example
+- PRTT1 = 10 ms, PD1 = 5, TO=?
+- TO1 = 4 * PD + PRTT = 20 + 10 = 30 ms
+- If, ARTT1 = 20 ms, AD = 10
+- PD2 = (1/2)(5) + (1/2)(10) = 7.5
+- PRTT2 = (1/2)(10) + (1/2)(20) = 15 ms
+- TO2 = 4 * 7.5 + 15 = 30 + 15 = 45 ms
+
+## Problem
+- Basic and Jacobson algo doesn't consider case if ACK doesn't arrive before TO.
+- We have Karn's modification which say if ACK doesn't come then next TO will be double of previous.
+- Like if TO is 10 and ACK not came, next TO will be 20, still ACK does not come then TO will be 40, and so on...
