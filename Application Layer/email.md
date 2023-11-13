@@ -100,3 +100,26 @@
 12. SEND FROM: Specifies that the mail is to be delivered to the terminal of the recipient, and not the mailbox.
 13. SMOL FROM: specifies that the mail is to be delivered to the terminal or the mailbox of the recipient.
 14. SMAL FROM: specifies that the mail is to be delivered to the terminal and the mailbox of the recipient.
+
+## Message Access Agent: POP and IMAP
+- The first and the second stages of mail delivery use SMTP. However, SMTP is not involved in the third stage because SMTP is a **push protocol**; it pushes the message from the client to the server. In other words, the direction of the bulk: data is from the client to the server.
+- On the other hand, the third stage needs a **pull protocol;** the client must pull messages from the server. The direction of the bulk data is from the server to the client. **The third stage uses a message access agent.**
+- Currently two message access protocols are available: Post Office Protocol, version 3(POP3) and Internet Mail Access Protocol, version 4(IMAP4).
+![Alt text](image-10.png)
+### POP3
+- Post Office Protocol, version 3 is simple and limited in functionality. The client POP3 software is installed on the recipient computer; the server POP3 software is installed on the mail server.
+- Mail access starts with the client when the user needs to download e-mail from the mailbox on the mail server.
+- The client opens a connection to the server **on TCP port 110.**
+- It then sends it's **user name and password** to access the mailbox. The user can then list and retrieve the mail messages, one by one.
+![Alt text](image-11.png)
+- POP3 has two modes; **delete mode and keep mode.**
+- In the delete mode, the mail is **deleted from the mailbox** after each **retrieval.** In the keep mode, the mail **remains in the mailbox** after retrival.
+- The delete mode is normally used when the user is working at her permanent computer and can save and organize the received mail after reading or replying.
+- The keep mode is normally used when the user accesses her mail away from her primary computer. The mail is read but kept in the system for later retrieval and organizing.
+### IMAP4
+- IMAP4 uses **TCP port number 143** and provides the following extra functions which are not provided by POP3.
+  - A user can check the **e-mail header** prior to downloading.
+  - A user can **search the contents** of the e-mail for a specific string of characters prior to downloading.
+  - A user can **partially download e-mail.** This is especially useful if bandwidth is limited and e-mail contains multimedia with high bandwidth requirements.
+  - A user can **create, delete, or rename** mailboxes on the mail server.
+  - A user can create a **hierarchy of mailboxes** in a folder for e-mail storage.
