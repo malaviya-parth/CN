@@ -121,4 +121,62 @@ How many . can be there at max in domain name
    - It neither creates nor updates the zone file.
    - If updation is required then it can be done only by primary server and it sent the updated file to all secondary servers.
    - Also note that we can have only one primary server for zone and many secondary servers for the same zone.
-   - When the secondary downloads information from primary, it is called **zone transfer** and it is done by TCP.
+   - When the secondary downloads information from primary, it is called **zone transfer** and it is done by **TCP.**
+
+## Working of DNS
+- When we type URL in address bar of web browser like www.google.com it is partially qualified domain name (as it does not end with a dot).
+- It passes this address to program called **resolver** (DNS Client) and it first convert it into FQDN that is **<u>www.google.com.</u>**.
+- Now it will first check in DNS cache that is temporary memory or buffer for the mapping. If entry is present then corresponding IP address is given to web browser. Entry is present if recently web browser has opend that page. This entry is timed out after some time.
+- If entry is absent then this resolver will send this query to **local DNS server** (address of the server) is present in TCP/IP settings and is updated by DHCP server when m/c is connected to internet.
+- Now this server will first check in its cache if mapping is present then it sends corresponding address to resolver and it sends to web browser.
+- But if entry is not present then it will send query to **root server.**
+- Root server has IP address of all top level domain servers only so it does not have IP address of www.google.com
+- So it will send IP address of server whose domain is .com that is it **partially solve the query.**
+- Now local DNS will send query to .com server and it will send IP address of DNS server of Google organization because .com server don't store IP addresses of hosts of Google organisation.
+- Now again local DNS server send query to this Google DNS server which has IP address of www, mail, plus, etc hosts of Google and it will send IP address of www.google.com **now it is fully solved.**
+- Now query is resolved and local DNS server send reply to resolver and this resolver replies to web browser.
+![Alt text](image-4.png)
+
+## DNS Query
+- We have 3 types of DNS queries
+  1. Reverse loopup query
+      - It is used for reverse process i.e. IP to domain name.
+  2. Recursive Query
+      - When client do this then server has to give **definitive answer** that is if name exists then IP address otherwise error message must be given.
+      - DNS server **can't refer client to any other DNS server**
+      - Generally recursive queries are sent **end devices to local DNS server.**
+      - In above picture, **DNS client to Local DNS Server.**
+   3. Iterative Query
+      - DNS client allows the DNS server to return **best answer** it may be definitive or not.
+      - So now DNS server can send **IP of another DNS server also** and client will request the same query to it
+      - For example as seen in working of DNS all 3 queries from local DNS server are iterative queries.
+      - This process is also called **walking the tree.**
+      - In the above picture, query to root, .com and google server are all iterative queries.
+
+## DNS Answer Types
+- There are 4 types of answers given by DNS server to DNS clients.
+   1. Negative
+      - It is the error message given by server if name does not exists.
+   2. Authorative
+      - If server give definitive answer after searching from its own database.
+      - For e.g. as seen in DNS working, google server reply to our local DNS server.
+   3. Non Authorative
+      - Reply to query is given by not searching its own database.
+      - For e.g. as seen in DNS working, local DNS server reply to resolver.
+   4. Referral
+      - Answer which give IP of other DNS servers.
+
+## Registrars
+- How are new domains added to DNS? This is done through a registrar, a commercial organization accredited by **ICANN.** A registrar first verifies that the requested domain name is unique and then enters it into the DNS database. A fee is charged.
+- Today, there are many registrars; their names can be found at http://www/intenic.net
+- To register, the organization needs to give the name of its server and the IP address of the server. For example, a new commercial organization named **abc** with a server named **ws** and IP address 200.200.200.5 needs to give the following information to one pf the registrars:
+  - Domain name: WS.wonderfil.com
+  - IP address: 200.200.200.5
+
+## Dynamic Domain Name System (DDNS)
+- When the DNS was designed, no one predicted that there would be so many address changes.
+- In DNS, when there is a change, such as adding a new host, removing a host, or changing an IP address, the change must be made to the DNS master file.
+- These types of changes involve a lot of manual updating.
+- The size of today's Internet does not allow for this kind of manual operation.
+- The DNS master file must be updated dynamically.
+- The DDNS therefore was devised to respond to this need.
