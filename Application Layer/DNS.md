@@ -72,3 +72,53 @@ How many . can be there at max in domain name
 | challenger.atc.fhda.edu. | challenger.atc.fhda.edu |
 | cs.hmme.com. | cs.hmme |
 | www.funny.int. | www |
+
+## DNS in Internet
+- In internet Domain Nmae space is divided into three different sections:
+   1. Generic Domains
+   2. Country Domains
+   3. Inverse Domain
+- arpa, org, com, in, etc. are Top Level domains.
+### Generic Domains
+- The genric domains define registered hosts according to their generic behaviour.
+- The first level in the generic domains section allows **14 possible labels**.
+![Alt text](image-2.png)
+### Country Domains
+- The country domains section uses two-character country abbreviations. Second labels can be organizational, or they can be more specific, nationl designations.
+- The United States, for example, uses states abbreviations as a subdivision of us (ca.us for California in USA.)
+- Yet another example can be the address www.amazon.in can be translated to organization amazon in India.
+### Inverse Domain
+- The inverse domain is used to map address to a name.
+- This may happen, for example, when a server has received a request from a client to do a task.
+- Although the server has a file that contains a list of authorized clients, only the IP address of the client (extracted from the received IP packet) is listed.
+- The server asks its resolver to send a query to the DNS server to map an address to a name to determine the client is on the authorized list.
+- This type of query is called an inverse or pointer (PTR) query.
+- To handle a pointer query, we have **only one top level domain known as arpa.**
+- It was the first domain in DNS. Originally it was called Advance Research Project Agency but now it is called Address and Routing Parameter Area.
+- At **second level 2 domains** are used for inverse mapping i.e. **in-addr(for inverse address) and ip6.**
+- in-addr is used for IPv4 and ip6 is used for IPv6.
+
+## Distribution of NameSpace
+- It means that how this huge amount of information is distributed over servers.
+- Part of tree managed by server is called its **zone** and it is always contiguous part of tree.
+- We have not stored this entire information at one place to avoid single point of failure and responding request from all over the world places heavy load on system.
+![Alt text](image-3.png)
+- Look here, the black part of tree will be stored on some other server and blue part on some other server.
+  - Black part will be conected to blue by giving root of black some pointer address.
+
+## Types of Servers
+1. Non-Authoritative
+   - It has **no DNS databse** i.e. it has no entry for IP address and name for any organization
+   - It is also known as **cache only server** because to service any query they uses their cache or ask other servers the same query or refer the DNS client to some other server.
+   - Example is **Root Server** and it is type of server who's zone is entire DNS tree. Actually it does not store any  information about domain but it sotres the IP address of different servers whose zone is top level domain. There are several root servers in the Internet and all stores same redundant information.
+2. Authoritative
+   - It has DNS Database and it is of 2 Types
+   ### Primary
+   - It stores file for a zone for which it is responsible.
+   - It is responsible for generating, maintaining and updating this zone file.
+   ### Secondary
+   - It reansfer the complete information about zone from any other server (primary or secondary)  and the file store the file on it's disk.
+   - It neither creates nor updates the zone file.
+   - If updation is required then it can be done only by primary server and it sent the updated file to all secondary servers.
+   - Also note that we can have only one primary server for zone and many secondary servers for the same zone.
+   - When the secondary downloads information from primary, it is called **zone transfer** and it is done by TCP.
