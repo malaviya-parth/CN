@@ -42,3 +42,61 @@
 - Hence, we need another set of client/server agents which we call **Message Access Agents**.
 - Unlike MTA client, MAA client is a **pull program** and it can pull messages from MAA server.
 - So Bob uses MAA client to retrieve his messages. The client sends a request to the MAA server, which is running all the time, and requests the transfer of the messages.
+- ***NOTE:*** Here, we require 1 pair of User Agents, 2 pair of MTAs and 1 pair MAAs.
+
+## User Agent
+- The first component of an electronic mail system is the user agent. It provide service to the user to maek the process of sending and receiving a message easier. Best known example is **Microsoft Outlook.**
+### Services Provided by User Agent
+- A user agent is a software package that composes, reads, replies to, and forwards messages. It also handles mailboxes.
+- Services:
+  - Composing Messages
+  - Reading Messages
+  - Replying to messages
+  - Forwarding messages
+  - Handling mailboxes
+### User Agent Types
+1. Command-Driven:
+   - Command-driven user agents belong to the early days of email. They are still present as the underlying user agents in servers.
+   - A command-driven user agent normally accepts a **one-character** command from the keyboard to perform it's task. For example, a user can type the character **r**, at the command prompt, to **reply to the sender of the message**, or type character **R** to **reply to the sender and all recipients of the message.**
+   - Some examples of command driven UA are **mail,pine and elm.**
+2. GUI-Based:
+   - Modern user agents are GUI-based. They contain graphical-user interface component that allow the user to interact with the software by using both the keyboard and the mouse.
+   - They have graphical components such as icons, menu bars, and windows that make the services easy to access.
+   - Some examples of GUI-based UA are **Eudora,Microsoft's Outllok, and Netscape.**
+### Addresses
+- To deliver mail, a mail handling system must use an addressing system with unique addresses. In the Internet, the address consists of two parts: **a local part and a domain name, seperated by an @ sign.**
+### MIME
+- Email has a simple structure. Its simplicity, however, comes at a price. It can send messages only in **7-bit ASCII** format.
+- In other words, it has some limitations. For example, it cannot be used for languages that are not supported by 7-bit ASCII characters(such as French, German, Hebrew, Russian, Chinese, and Japanese).
+- Also, it cannot be used to send **binary files or videos or audio data**
+- **Multipurpose Internet Mail Extensions** is a supplementary protocol that allows **non-ASCII data** to be sent through email.
+![Alt text](image-9.png)
+- MIME transforms non-ASCII data at the sender site to ASCII data and delivers them to the client MTA to be sent through the Internet. The message at the receiving side is transformed back to the original data.
+- We can think of MIME as a set of software functions that **transforms non-ASCII data (stream of bits) to ASCII data and vice versa.**
+- MIME allows seven different types of data like audio, video, image etc.
+
+## Message Transfer Agent: SMTP
+- The actual mail transfer is done through message transfer agents. To send mail, a system must have the client MTA, and to receive mail, a system must have a server MTA.
+- The formal protocol that defines the MTA client and server in the Internet is called the **Simple Mail Transfer Protocol (SMTP).** As we said before, two pairs of MTA client/server programs are used in the most common situation (fourth scenario).
+- SMTP is used **Two Times**, between the **sender and the sender's mail server** and between **sender mail server and receiver mail server.**
+  - Scenario 1: 0
+  - Scenario 2: 1
+  - Scenario 3: 2
+  - Scenario 4: 2
+- ***It is a connection oriented protocol and uses TCP with port number 25***
+- SMTP simply defines how commands and responses must be sent back and forth. MTA client sends the command and server sends the responses.
+### SMTP Commands
+1. HELO: This command is used by client to identify itself
+2. MAIL FROM: Used by client to identify sender of the message
+3. RCPT TO: Use by client to identify the intended recipient of the message.
+4. DATA: Used to send the actual message
+5. QUIT: terminates the message
+6. RSET: aborts current mail transaction
+7. VRFY: verify address of the recipient
+8. NOOP: used by client to check the status of the recipient
+9. TURN: Lets the sender and the recipient switch positions, whereby the sender becomes the recipient and vice versa.
+10. EXPN: verify the existence of one or more mailboxes on the system.
+11. HELP: asks the recipient to send information about the command sent as the argument.
+12. SEND FROM: Specifies that the mail is to be delivered to the terminal of the recipient, and not the mailbox.
+13. SMOL FROM: specifies that the mail is to be delivered to the terminal or the mailbox of the recipient.
+14. SMAL FROM: specifies that the mail is to be delivered to the terminal and the mailbox of the recipient.
