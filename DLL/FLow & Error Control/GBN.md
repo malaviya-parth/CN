@@ -89,7 +89,7 @@ Throughput = Efficiency * Bandwidth = 47.6% * 20 kbps = 9.52 kbps
 ### Solution
 Station are not connected directly they are connected via satellite.  
 Propogation delay for this will be two times as one for uplink and one for downlink.  
-Propagation Delay = 2*$\frac{Distance}{Speed}$ = 2*$\frac{36,504}{3 \times 10^8}$ = 243360 $\mu$s = 243.36 ms
+Propagation Delay = 2* $\frac{Distance}{Speed}$ = 2* $\frac{36,504}{3 \times 10^8}$ = 243360 $\mu$ s = 243.36 ms
 Efficiency = $\frac{N}{1+2a}$ = 25%  
   - 0.25 = $\frac{127}{1+2a}$
   - a = 507/2 = 253.5 ms
@@ -98,10 +98,18 @@ Efficiency = $\frac{N}{1+2a}$ = 25%
 - Packet Size = 1 Mbps * 0.96 ms = 960 bits = 120 bytes
 
 ## GATE 2006
-Station need A needs to sned 9 packets t ostation B using GB-N(N=3). If every 5th packet is lost then how many packets are actually sent by A?
+Station A needs to send 9 packets to station B using GB-N(N=3). If every 5th packet is lost then how many packets are actually sent by A?
 
 ### Solution
-- Answer is 16 but I didn't get it how.
+- The answer is 16
+- The first window sent 123 all will arrive at the receiver
+- The second window sends 456, 5 will be lost so no ACK received by the sender
+- Again 456 will be sent, this time will arrive at receiver's end
+- Now the sender sends 789, but packet 7 will be lost.
+- Again sender sends 789, this time 9 will be lost.
+- Now 9 will be sent.
+- Total 16 packets.
+- |123|4_6|456|\_89|78\_|9
 
 ### GATE 2015
 Distance is 8000 km, B/W =500 Mbps, Speed = 4 * $10^6$ m/s, GBN protocol is used with packet size = $10^7$ bits. Network is to be used to it's full capacity. Minimum Size in bits of the sequence no. field??
