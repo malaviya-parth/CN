@@ -11,12 +11,14 @@
 - Baud rate is the rate at which the signal changes
 - For Digital signal, one signal unit is signal with constan amplitude.
 
-![Alt text](../Assests/image16.png)
+![Alt text](../../Assests/image16.png)
+
 - Here if all signal shown are transmitted in one second then,
 - Baud rate = 6 bauds
 - Bit rate = 6 bps
 
-![Alt text](../Assests/image19.png)
+![Alt text](../../Assests/image19.png)
+
 - Here if all signal shown are transmitted in one second then,
 - Baud rate = 12 bauds
 - Bit rate = 6 bps
@@ -27,12 +29,12 @@
 
 ### For Case of analog signals, One signal unit is signal with same amplitude phase and frequency.
 
-![Alt text](../Assests/image20.png)
+![Alt text](../../Assests/image20.png)
 - Here if all signal shown are transmitted in one second then,
 - Baud rate = 2 bauds
 - Bit rate = 2 bps
 
-![Alt text](../Assests/image21.png)
+![Alt text](../../Assests/image21.png)
 - Here if all signal shown are transmitted in one second then,
 - We used 2 bits each to represent one signal unit, because we have 4 different signal units with different amplitudes.
 - Baud rate = 4 bauds
