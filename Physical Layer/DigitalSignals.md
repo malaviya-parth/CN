@@ -14,7 +14,7 @@
    - For the above given graph, bit rate is 4 bps.
 
 3. Bit Length: The length of a bit is called the bit length. It is the distance traveled by light in one bit time.
-    - For the above given graph, bit length = 0.25 * 3 * 10^8 = 75,000,000 m.
+    - For the above given graph, bit length = 0.25 * 3 * $10^8$ = 75,000,000 m.
 
 ## Analogies with Analog Signals
 
@@ -25,12 +25,12 @@
 ## Q. Find the bit length, if bit rate is 6 Mbps.
 
 - Bit length = c / bit rate
-  - c = 3 * 10^8 m/s
-  - bit rate = 6 * 10^6 bps
-  - bit length = 3 * 10^8 / 6 * 10^6 = 50 m
+  - c = 3 * $10^8$ m/s
+  - bit rate = 6 * $10^6$ bps
+  - bit length = 3 * $\frac{10^8}{6 \times 10^6}$ = 50 m
 - Bit length is 50 m.
-- Bit interval = 1 / bit rate = 1 / 6 * 10^6 = 0.167 micro sec.
+- Bit interval = $\frac{1}{bit rate}$ = $\frac{1}{6}$ * $10^6$ = 0.167 micro sec.
 
 ## Q. Find the bit rate, if onr bit last for 1 micro sec on Transmission medium.
 
-- Bit rate = 1 / bit interval = 1 / 1 micro sec = 1 Mbps
+- Bit rate = $\frac{1}{bit interval}$ = $\frac{1}{1 \mu s}$ = 1 Mbps
