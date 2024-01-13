@@ -53,10 +53,10 @@ TT = 1 sec, TP = 5 sec
 > Maximum window size = 1 + 2a  
 
 ## GATE 2003
-Host A is sending data to HostB. Sender & receiver window size = 5 packets. Packet Size = 1000 bytes, Transmission time = 50 $\mu$s, Propagation time = 200 $\mu$s. Size of ACK is negligible. Maximum Achievable throughput?
+Host A is sending data to HostB. Sender & receiver window size = 5 packets. Packet Size = 1000 bytes, Transmission time = 50 $\mu$ s, Propagation time = 200 $\mu$ s. Size of ACK is negligible. Maximum Achievable throughput?
 
 ### Solution
-B/W = 1000 $\times$ 8/50 $\mu$s = 160 Mbps  
+B/W = 1000 $\times$ 8/50 $\mu$ s = 160 Mbps  
 Efficiency = $\frac{Actual \; window \; size}{Maximum \; window \; size}$ = $\frac{5}{1 + 2a}$ = $\frac{5}{9}$ = 55.55%
 Throughput = 55.55% $\times$ 160 Mbps = 88.88 Mbps = 11.11 MBps
 

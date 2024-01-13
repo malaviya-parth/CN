@@ -39,16 +39,20 @@ graph TD;
 
 **Figure 2: Phase of a signal**
 
-- Phase = 0&deg; or 360&deg; or 0 rad or 2$\pi$ rad
+- Phase = 0&deg; or 360&deg; or 0 rad or 2 $\pi$ rad
+
 ![Alt text](../Assests/image6.png)
 
 - Phase = 90&deg; or $\frac{\pi}{2}$ rad
+
 ![Alt text](../Assests/image7.png)
 
 - Phase = 180&deg; or $\pi$ rad
+
 ![Alt text](../Assests/image8.png)
 
 - Phase = 270&deg; or $\frac{3\pi}{2}$ rad
+
 ![Alt text](../Assests/image9.png)
 
 ## Q. Frequency and Period for the following signal
@@ -60,7 +64,7 @@ graph TD;
 ## Q. If Sine wave is offset by $\frac{1}{6}$ cycle, what is the phase of the signal?
 
 - Phase = $\frac{1}{6}$ cycle = $\frac{1}{6}$ $\times$ 360&deg; = 60&deg;
-- Phase = $\frac{1}{6}$ cycle = $\frac{1}{6}$ $\times$ 2$\pi$ rad = $\frac{\pi}{3}$ rad
+- Phase = $\frac{1}{6}$ cycle = $\frac{1}{6}$ $\times$ 2 $\pi$ rad = $\frac{\pi}{3}$ rad
 
 4. **Wavelength**: The wavelength of a signal is the distance occupied by one cycle on the transmission medium.
    - It is measured in meters.

@@ -7,9 +7,19 @@
 ## Working 
 - Suppose it is GB3
 - Senders sends 3 frames and waits for ACK.
-- Receiver receives first frame, then window slides to next frame. It receives second frame, then window slides to next frame. It receives third frame, then window slides to next frame. Now it sends single ACK for all three frames(Cumulative ACK).
+- Receiver receives first frame, then window slides to next frame. It receives second frame, then window slides to next frame. It receives third frame, then window slides to next frame. As soon as receiver receives frame it sends respective ACK.
 - After sender receives ACK, it slides the window to the next of last frame sent.
-- Next window = $0_1,1_1,2_1$
+- Example GB-3
+   - Sender has frames 123456 to send
+   - Initial window |123|456
+   - Sender sends fame 123
+   - Receiver receives 1 and sends ACK
+   - Now Sender window will be 1|234|56
+   - Receiver receives packet 2 and sends ACK
+   - Now Sender window will be 12|345|6
+   - Now packet 3 is lost, receiver still receives packet 45 but will be discarded as those are not the required packets.
+   - Timeout occurs at sender side, sender again sends the window frames 345.
+   - Like this the process occurs
 - Also, sender sets a timer for the left most frame in the window. If it doesn't receive ACK for that frame, it will retransmit all the frames in the window. It assumes frames will be received in order.
 - A timer is maintained at receiver side as well, like if the last packet sent by sender is lost then after the timer expires receiver will send cumulative of only those packets which are received.
 - For Proper Impelementation Sender Timer should be greater than Receiver Timer.
@@ -89,7 +99,7 @@ Throughput = Efficiency * Bandwidth = 47.6% * 20 kbps = 9.52 kbps
 ### Solution
 Station are not connected directly they are connected via satellite.  
 Propogation delay for this will be two times as one for uplink and one for downlink.  
-Propagation Delay = 2*$\frac{Distance}{Speed}$ = 2*$\frac{36,504}{3 \times 10^8}$ = 243360 $\mu$s = 243.36 ms
+Propagation Delay = 2* $\frac{Distance}{Speed}$ = 2* $\frac{36,504}{3 \times 10^8}$ = 243360 $\mu$ s = 243.36 ms
 Efficiency = $\frac{N}{1+2a}$ = 25%  
   - 0.25 = $\frac{127}{1+2a}$
   - a = 507/2 = 253.5 ms
@@ -98,10 +108,27 @@ Efficiency = $\frac{N}{1+2a}$ = 25%
 - Packet Size = 1 Mbps * 0.96 ms = 960 bits = 120 bytes
 
 ## GATE 2006
-Station need A needs to sned 9 packets t ostation B using GB-N(N=3). If every 5th packet is lost then how many packets are actually sent by A?
+Station A needs to send 9 packets to station B using GB-N(N=3). If every 5th packet is lost then how many packets are actually sent by A?
 
 ### Solution
-- Answer is 16 but I didn't get it how.
+- The answer is 16
+- |123|456789, 123 will be sent.
+- ACK of 1 received then 4 will be sent. New window 1|234|56789. Packets sent = 4
+- ACK of 2 received then 5 will be sent. New window 12|345|6789. Packets sent = 5
+- ACK of 3 received then 6 will be sent. New window 123|456|789. Packets sent = 6
+- ACK of 4 received then 7 will be sent. New window 1234|567|89. Packets sent = 7
+- ACK of 5 won't be received as 5th packet will be lost.
+- Timeout occurs, this window will send 567. Packets sent = 10
+- ACK of 5 received then 8 will be sent. New window 12345|678|9. Packets sent = 11
+- ACK of 6 received then 9 will be sent. New window 123456|789|. Packets sent = 12
+- ACK of 7 won't be received as it is 10th packet send, multiple of 5, so will be lost.
+- Timeout occurs, this window will send 789. Packets sent = 15.
+- ACK of 7 received. New window 1234567|89|.
+- ACK of 8 received. New window 12345678|9|.
+- ACK of 9 won't be received as it is the 15th packet so will be lost.
+- Timeout occurs, this window will send 9. Packets sent = 16.
+- ACK of 9 will be received.
+- Process over, total packets sent = 16.
 
 ### GATE 2015
 Distance is 8000 km, B/W =500 Mbps, Speed = 4 * $10^6$ m/s, GBN protocol is used with packet size = $10^7$ bits. Network is to be used to it's full capacity. Minimum Size in bits of the sequence no. field??
