@@ -1,4 +1,4 @@
-## How to Filll Routing Table
+## How to Fill Routing Table
 - Basically there are two ways to fill routing table.
   - Network Administrator fills the table
   - Routers fill their table themselves using any Routing Algorithm
