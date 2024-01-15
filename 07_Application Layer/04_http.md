@@ -1,7 +1,7 @@
 ## Hyper Text Transfer Protocol
 - Hyper Text: Clickable text
 - HTTP is used to access webpages from webserver.
-- Mainly used to access data on www[worldwideweb]
+- Mainly used to access data on www [ worldwideweb ]  
 ![Alt text](image-14.png)
 - HTTP is based on client/server model & uses TCP as transport layer protocol [ Port No: 80 ]
 - HTTP doesn't have flow & error control mechanism so it rely on TCP for that.

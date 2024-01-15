@@ -33,7 +33,7 @@ Given blocks: 100.40.32.0/24, 100.40.33.0/25. 100.40.33.128/25. Is aggregation p
   - Supernet Mask: 255.255.255.0
 - Now, aggregate the new supernet with first block.
   - Supernet ID: 100.40.32.0/23
-  - Supernetr Mask: 255.255.254.0
+  - Supernet Mask: 255.255.254.0
 - This is how suppernetting is done, similar to the concept of VLSM in subnetting.
 
 ## Question

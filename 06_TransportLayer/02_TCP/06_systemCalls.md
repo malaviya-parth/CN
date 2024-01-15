@@ -4,7 +4,7 @@
 - It acts like an interface between user program & O.S.
 - System call is a part of function call but it's definition is part of kernel.
 ### Socket Interface
-- Collection of system calls which are used to interact with TCP/IP software.
+- Collection of system calls which are used to interact with TCP/IP software.  
 ![Alt text](image-13.png)
 ### Socket
 ![Alt text](image-14.png)

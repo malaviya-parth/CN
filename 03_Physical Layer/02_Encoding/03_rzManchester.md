@@ -1,9 +1,9 @@
 # RZ Technique (Return to 0)
 
-- Here 1 is represented as Z and zero is represented as barkwards-z.
+- Here 1 is represented as Z and zero is represented as backwards-z.
 - Return to 0 means in the middle of bit we return to zero.
 
-**Figure**
+**Figure**  
 ![Alt text](../../Assests/image17.png)
 
 **Advantages**
@@ -16,7 +16,7 @@
 
 - Notations same as RZ, but instead of returning to zero goes to opposite direction.
 
-**Figure**
+**Figure**  
 ![Alt text](../../Assests/image18.png)
 
 **Advantages**
@@ -27,10 +27,10 @@
 
 # Differential Manchester Encoding
 
-- Here, one means change in shae and zero means no change in shape.
-- Start with any shape z or barkwards-z.
+- Here, one means change in shape and zero means no change in shape.
+- Start with any shape z or backwards-z.
 
-**Figure**
+**Figure**  
 ![Alt text](../../Assests/image19.png)
 
 **Advantages**

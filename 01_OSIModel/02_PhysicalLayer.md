@@ -9,7 +9,7 @@
     - If Data rate = 1000 bits/sec, then bit duration = 1/1000 sec = 1 msec.
 4. Synchronization of bits.
     - Sender and Receiver block must be synchronized at bit level.
-5. Line COnfiguration
+5. Line Configuration
     - How nodes are connected to media.
       -  Point to Point: 2 nodes are connected by a dedicated link.
       -  Multipoint: More than 2 nodes are connected by a shared link.

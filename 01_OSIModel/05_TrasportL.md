@@ -5,7 +5,7 @@
 
 1. Service Point Addressing:- Header of transport layer contains port addresses of both sender & receiver processes
 
-2. Segmentation & Reassembly:- Transport layer dividesstream of bits into segments & reassembles them at receiver side. Each segment contains a sequence number so that segments can be reassembled in order.
+2. Segmentation & Reassembly:- Transport layer divides-stream of bits into segments & reassembles them at receiver side. Each segment contains a sequence number so that segments can be reassembled in order.
 
 3. Connection Control:- Connectionless (UDP Protocol) or connection oriented service (TCP/IP Protocol).
 

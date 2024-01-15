@@ -25,21 +25,27 @@ D
 | B  |  7   |   B  |
 | C  |  11  |   C  |
 | D  |  0   |   D  |
+
 C
+
 | To | Cost | Next |
 | -- | ---- | ---- |
 | A  |  inf |   -  |
 | B  |  3   |   B  |
 | C  |  0   |   C  |
 | D  |  11  |   D  |
+
 A
+
 | To | Cost | Next |
 | -- | ---- | ---- |
 | A  |  0   |   A  |
 | B  |  2   |   B  |
 | C  |  inf |   -  |
 | D  |  1   |   D  |
+
 B
+
 | To | Cost | Next |
 | -- | ---- | ---- |
 | A  |  2   |   A  |
@@ -192,7 +198,7 @@ Which edge will be never used?
 - Since, DVR is a kind of Adaptive [Dynamic] Routing algorithm so it won't stop even after (n-1) steps rather routers keep on exchanging tables periodically because some router may fail pr link may go down, etc.
 
 ## Question
-Distance Vector routing is used, and the following vectors have just come in to router C: from B: (5,0,8,12,6,2); from D: (16,12,6,0,9,10); and from E: (7,6,3,9,0,4). The measured delays to B,D, and E, are 6,3, and 5, respectively. What is C's new routing table? Give both the outgoing line to use and the expected delay.
+Distance Vector routing is used, and the following vectors have just come in to router C: from B: (5,0,8,12,6,2); from D: (16,12,6,0,9,10); and from E: (7,6,3,9,0,4). The measured delays to B,D, and E, are 6,3, and 5, respectively. What is C's new routing table? Give both the outgoing line to use and the expected delay.  
 ![Alt text](image-4.png)
 
 ### Solution
@@ -208,7 +214,7 @@ C's Table
 | F  |  8    |  B   |
 
 ## Question (UGC-NET)
-Distanc vector routing algorithm is a dynamic routing algorithm. THe routing tables in distance vector routing algorithm are updated ____ .
+Distanc vector routing algorithm is a dynamic routing algorithm. The routing tables in distance vector routing algorithm are updated ____ .
 1. automatically
 2. by server
 3. by exchanging information with neighbour nodes
@@ -218,13 +224,13 @@ Distanc vector routing algorithm is a dynamic routing algorithm. THe routing tab
 - Option C.
 
 ## GATE 2011
-THe network uses a DVR protocol. Once the routes have been stabilized, the distance vectors at different nodes are as follows.
+The network uses a DVR protocol. Once the routes have been stabilized, the distance vectors at different nodes are as follows.  
 N1: (0,1,7,8,4)  
 N2: (1,0,6,7,3)  
 N3: (7,6,0,2,6)  
 N4: (8,7,2,0,4)  
 N5: (4,3,6,4,0)  
-Each distance vector is the distance of the best known path at that instant to nodes, N1 to N5, where the distance to itself is 0. Also, all links are symmetric and cost is identical in both directions. In each round, all nodes exchange their distance vectors with their respective neighbours. Then all nodes update their distance vectors. In between two rounds, any change in cosr od a link will cause the two incident nodes to change inly that entry in their distance vectors. The cost of link N2 - N3 reduces to 2. After next round of updates what will be the distance vector at node, N3?
+Each distance vector is the distance of the best known path at that instant to nodes, N1 to N5, where the distance to itself is 0. Also, all links are symmetric and cost is identical in both directions. In each round, all nodes exchange their distance vectors with their respective neighbours. Then all nodes update their distance vectors. In between two rounds, any change in cost of a link will cause the two incident nodes to change only that entry in their distance vectors. The cost of link N2 - N3 reduces to 2. After next round of updates what will be the distance vector at node, N3?
 ![Alt text](image-5.png)
 
 ### Solution
@@ -239,9 +245,9 @@ After the update in the previous question, the link N1-N2 goes down. N2 will ref
 - 10, due to the table received from N4 will have value 8 to reach N1.
 
 ## GATE 2021
-Consider a computer network using the dvr algorithm. The partial topology of the network is shown below.
+Consider a computer network using the dvr algorithm. The partial topology of the network is shown below.  
 ![Alt text](image-6.png)  
-The objective is to find the shortest-cost path from router R to routers P and Q. Assume that R does not initially know the shortest routes to P and Q. Assume that R has three neighbouring routers denoted as X, y and Z. During one iteration, R measures it's distance to its neighbours X, Y and Z as 3, 2 and 5, respectively. Router R gets routing vectors from its neighbours that indicate that the distance to router P from routers X,Y and Z are 7,6 and 5, respectively. The routing vecotr also indicates that the distance to router Q from routers X,Y and Z are 4,6 and 8. Which of the following statement(s) is/are correct with respect to new routing table of R, after updation during this iteration?
+The objective is to find the shortest-cost path from router R to routers P and Q. Assume that R does not initially know the shortest routes to P and Q. Assume that R has three neighbouring routers denoted as X, y and Z. During one iteration, R measures it's distance to its neighbours X, Y and Z as 3, 2 and 5, respectively. Router R gets routing vectors from its neighbours that indicate that the distance to router P from routers X,Y and Z are 7,6 and 5, respectively. The routing vector also indicates that the distance to router Q from routers X,Y and Z are 4,6 and 8. Which of the following statement(s) is/are correct with respect to new routing table of R, after updation during this iteration?
 1. The distance from R to P will be stored as 10.
 2. The distance from R to Q will be stored as 7.
 3. The next hop router for a packet from R to P is Y.
@@ -267,7 +273,7 @@ Distance vector routing works as
     - Any change in table, don't wait for periodic update time, just share immediately the updated changed table with the neighbours.
 
 ## Count to infinity Problem
-- Suppose below is the situation and table entries for r1 are shown.
+- Suppose below is the situation and table entries for r1 are shown.  
 ![Alt text](image-7.png)
 - Now if link b/w R1 and R2 is broken updated entries will be 
   - R1: 0 R1, R2: inf -, R3: 2 R2

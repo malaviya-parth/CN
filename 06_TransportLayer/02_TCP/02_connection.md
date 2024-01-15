@@ -20,7 +20,7 @@
 - MSS is set to 500 by server in options of reply packet.
 - 10,000 bytes buffer is allocated at server side, so window size will contain value 10,000.
 - By MSS and window size client come to know it can send atmost 20 segments with max size 500 bytes.
-- Althoguh client can receive segment og max size 1460 but server can't send segment of size more than 500.
+- Althoguh client can receive segment of max size 1460 but server can't send segment of size more than 500.
 ### ACK Packet
 - The client send ACK packet to the server and ACK no. will be 2001 i.e. sequence number next expected by client.
 - Sequence number of ACK packet will be 1001.

@@ -12,13 +12,13 @@
 
 **Figure 1: Digital Signal**
 
-![Digital Signal](./../Assests/image3.png)
+![Digital Signal](./../../Assests/image3.png)
 
 1. **Analog Signals**: An analog signal is any continuous signal for which the time varying feature (variable) of the signal is a representation of some other time varying quantity, i.e., analogous to another time varying signal.
 
 **Figure 1: Analog Signal**
 
-![Alt text](./../Assests/image4.png)
+![Alt text](./../../Assests/image4.png)
 
 ## Another Classification of Signals
 

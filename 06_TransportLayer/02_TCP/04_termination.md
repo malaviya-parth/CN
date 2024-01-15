@@ -25,7 +25,7 @@
   - SN:1201, ACK:1, ACKNo:2201, FIN:1
 - Now, server still wants to send some data, so first it sends ACK but do not set FIN flag to 1 indicating that server currently don't want to terminate connection.
   - Server sends ACK, SN:2201, ACK:1, ACKNo:1202
-- Server now sedns data, SN: 2202, ACK:1, ACKNo:1202
+- Server now sends data, SN: 2202, ACK:1, ACKNo:1202
 - Client in return sends pure ACK
   - SN:1202, ACK:1, ACKNo:2301
 - Now Server wants to terminate the connection
@@ -45,7 +45,7 @@
 - ACK S->C ✅ [Same ACK always]
 
 ## GATE 2021
-Consider the three-way handshale mechanism followed during TCP connection establishment between hosts P and Q. Let X and Y be two random 32-bit starting sequence chosen by P and Q respectively. Suppose P sends a TCP connection request message to Q with a TCP segment having SYN bit = 1, SEQ number = X, and ACK bit =0. Suppose Q accepts the connection request. Which one of the following choice represents the information present in the TCP segment header that is sent by Q to P?
+Consider the three-way handshake mechanism followed during TCP connection establishment between hosts P and Q. Let X and Y be two random 32-bit starting sequence chosen by P and Q respectively. Suppose P sends a TCP connection request message to Q with a TCP segment having SYN bit = 1, SEQ number = X, and ACK bit =0. Suppose Q accepts the connection request. Which one of the following choice represents the information present in the TCP segment header that is sent by Q to P?
 1. SYN bit =1, SEQ num = X+1, ACK bit =0, ACK num = Y, FIN bit =0
 2. SYN bit =0, SEQ num = X+1, ACK bit =0, ACK num = Y, FIN bit =1
 3. SYN bit =1, SEQ num = Y, ACK bit =1, ACK num = X+1, FIN bit =0

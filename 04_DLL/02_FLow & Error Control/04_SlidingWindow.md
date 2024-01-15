@@ -15,7 +15,7 @@ Frame Size = 1000 bits, Tp = 10 ms, B/W = 1 Mbps.
 2. If 15 frames are sent before receiving ACK, then efficiency = 15/(15 + 2*10) = 15/35 = 42.85%  
    - Improvement = 42.85 - 4.76 = 38.09%
 3. Sender never remains means efficiency = 100%  
-    - 1 = x*1/(1 + 2*10)
+    - 1 = x\*1/(1 + 2\*10)
     - x = 21
 4. Bits are calculated on the basis of number of frames sent
    1. For 21 frames, 5 bits are needed
@@ -31,8 +31,14 @@ Frame Size = 1000 bits, Tp = 10 ms, B/W = 1 Mbps.
 - Window slides one position to the right as soon as ACK for the first frame is received.
 ![Alt text](./Assests/image2.png?raw=true "Title")
 
+### Efficiency
+- Efficiency as says ratio of useful time to total time.
+- $\eta$ = $\frac{Actual\; Window\; Size}{Maximum\; Window\; Size}$
+- Max window size will be min(1+2a, $2^n$).
+- To get maximum efficiency Actual Window Size must be equal to Maximum Window Size.
+
 ### Summary
-To geet maximum efficiency window size should be 1 + 2a, where a = $\frac{T_p}{T_t}$  
+To get maximum efficiency window size should be 1 + 2a, where a = $\frac{T_p}{T_t}$  
 For this we need to have 1 + 2a sequence numbers.  
 Number of bits required for sequence number = $\lceil log_2(1 + 2a) \rceil$  
 
@@ -49,7 +55,6 @@ TT = 1 sec, TP = 5 sec
    - Efficiency = 8/11 = 72.72%
 
 > Efficiency = $\frac{Actual \; window \; size}{Maximum \; window \; size}$   
->   
 > Maximum window size = 1 + 2a  
 
 ## GATE 2003
@@ -57,7 +62,7 @@ Host A is sending data to HostB. Sender & receiver window size = 5 packets. Pack
 
 ### Solution
 B/W = 1000 $\times$ 8/50 $\mu$ s = 160 Mbps  
-Efficiency = $\frac{Actual \; window \; size}{Maximum \; window \; size}$ = $\frac{5}{1 + 2a}$ = $\frac{5}{9}$ = 55.55%
+Efficiency = $\frac{Actual \; window \; size}{Maximum \; window \; size}$ = $\frac{5}{1 + 2a}$ = $\frac{5}{9}$ = 55.55%  
 Throughput = 55.55% $\times$ 160 Mbps = 88.88 Mbps = 11.11 MBps
 
 ## GATE 2006
@@ -81,7 +86,7 @@ Number of bits required = $\lceil log_2(1 + 2\frac{(Lt)R}{K}) \rceil$
 ## GATE 2009
 Frame Size = 1000 bits, B/W = 1 Mbps, Duplex Link, Propagation Delay = 25 ms. Frames to be transmitted into this link to maximally pack them in transit.
 1. Minimum no. of bits required to represent the sequence no. distinctly. Assume no time gap between transmission of 2 frames.
-2. If SWp is used with sender window size = $2^m$, (m determined in part 1), Minimum time the sender have to wait before starting transmission of next frame. ACKs are always piggybacked.
+2. If SWP is used with sender window size = $2^m$, (m determined in part 1), Minimum time the sender have to wait before starting transmission of next frame. ACKs are always piggybacked.
 
 ### Solution
 1. Capacity of link = 1 Mbps $\times$ 25 ms = 25000 bits

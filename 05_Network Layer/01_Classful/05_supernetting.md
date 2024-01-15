@@ -45,7 +45,7 @@ Given four IP addresses | 200.40.48.0 | 200.40.49.0 | 200.40.50.0 | 200.40.51.0 
 - Easy way to check like 10 zeros needed, now in last octet we have 8 zeros. So 2 zeros left to check, if the number written in 3rd octet is divisible by 4 then it is divisible by 4 so at least there will be 2 zeros at back. Hence Given IP will be divisible by $2^{10}$
 
 ## Question
-Given four IP addresses | 200.40.51.0 | 200.40.52.0 | If 500 IP addresses are demanded is it possible with this?
+Given two IP addresses | 200.40.51.0 | 200.40.52.0 | If 500 IP addresses are demanded is it possible with this?
 
 ### Solution 
 - Con 1,2,3: are met.

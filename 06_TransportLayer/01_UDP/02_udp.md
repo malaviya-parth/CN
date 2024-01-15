@@ -1,6 +1,6 @@
 ## User Datagram Protocol
 - Is is a connectionless protocol, unreliable transport protocol.
-- If a process want to sned a small message and does not care about reliability, it can use UDP.
+- If a process want to send a small message and does not care about reliability, it can use UDP.
 - **Connectionless:** No need of connection establishment or connection release.
   - The packets are not numbered, they may be deleted or lost or may arrive out of sequence.
   - There is no acknowledgement either.
@@ -35,7 +35,7 @@
 - Checksum includes three sections: pseudoheader, UDP header and data.
 - Pseudoheader is part of header of IP packet in which user datagram is to be encapsulated.
   - It is of 12 bytes.
-  - Similar to last 12 fixed bytes of IP header.
+  - Similar to last 12 fixed bytes of IP header.  
 ![Alt text](image-1.png)
 - Pseudoheader is for double checking whether packet is delivered to the right host or not.
 - We call it pseudoheader because it is not transferred.
@@ -63,7 +63,7 @@
 - Queues are mapped with port numbers. Queues are closed when process terminates.
 - UDP takes and gives messages from the queue.
 - If outgoing queue is full OS helps by asking client process to wait before sending any new messages.
-- WHen message arrive UDP check if mapped incoming queue is there or not, if not then it sends port unreachable message through ICMP.
+- When message arrive UDP check if mapped incoming queue is there or not, if not then it sends port unreachable message through ICMP.
 - If incoming queue overflow then UDP drops user datagram and asks for port unreachable message to be sent to the server.
 
 ## Uses

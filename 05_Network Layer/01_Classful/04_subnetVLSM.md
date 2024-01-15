@@ -25,10 +25,10 @@ To give class C block among 4 organisations such that the parts are 128,64,32,32
 
 ### Solution
 - Two ways to give 128 block
-- Then, two ways to give 644 block
+- Then, two ways to give 64 block
 - Then, two ways to give 32 block
 - Then, one block left for 32
-- Total = 2*2*2*1 = 8
+- Total = 2\*2\*2\*1 = 8
 - Blocks:
   - 200.40.50.0 - 200.40.50.127
   - 200.40.50.128 - 200.40.50.191

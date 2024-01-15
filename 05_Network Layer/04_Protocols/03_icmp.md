@@ -3,7 +3,7 @@
 - It is best effort delivery system i.e. it neither has Flow control nor error control.
 - IP needs support from ICMP for F.C. and E.C.
   - Flow control like if buffer of a router is full it sends error message which indicates server to slow down the sending process.
-  - Error Control like if any packet is dropped by router then it imforms back the source that it has dropped the packet due to some error.
+  - Error Control like if any packet is dropped by router then it informs back the source that it has dropped the packet due to some error.
 - ICMP can't detect or correct errors, actually it's an error reporting protocol.
 - The error is reported back directly to the source not to any intermediataries.
 
@@ -15,7 +15,7 @@
 ## Error Reporting Messages
 - Whenever Datagram is dropped by intermediate router or end receiver then sender must be informed about it's packet has been dropped.
 - This information is sent using ICMP.
-- Direction of packet movement for ICMP i from ROuter to sender or receiver to sender.
+- Direction of packet movement for ICMP from Router to sender or receiver to sender.
 
 ## Some Important Points
 - No ICMP error message will be generated in respone to a datagram carrying an ICMP error message.

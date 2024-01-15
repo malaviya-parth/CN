@@ -4,7 +4,10 @@
 - It is a type of Linear Block Code.
 - The main task in error correcting code is to find the position of error, then we just need to complement the bit at that position.
 - This scheme is also based on the concept of redundancy.
-- Itt can correct single bit error.
+- It can correct single bit error.
+- Minimum hamming distance is 3. So, detect upto 2 errors.
+- Hamming code can detect two bit errors but Hamming code cannot distinguish it, two bit errors appear same as one-bit error(For Case of Hamming(7,4)).
+- Using parity bit and making Hamming (8,4) will will help distinguish the errors.
 
 ## How many Redundant bits in Hamming Code?
 - $2^k \geq n + k + 1$
@@ -46,7 +49,7 @@
 ### Solution
 - 0xE4F = 1110 0100 1111
 - P8 = 0, P4 = 0, P2 = 0, P1 = 1
-- Error Codes = 0011 $\orplus$ 0001 = 0010
+- Error Codes = 0011 $\oplus$ 0001 = 0010
 - Error Position = 0010 = 2
 - Valid Codeword = 1010 0100 1111 = 0xA4F
 
@@ -56,7 +59,7 @@
 ### Solution
 - Look given is 8 bit dataword and 4 bit check bits.
 - So, it is a question related to hamming codes.
-- Error codes = 1101 $\orplus$ 0111 = 1010
+- Error codes = 1101 $\oplus$ 0111 = 1010
 - Error is in position 1010 = 10.
 - Valid dataword = 00011001
 

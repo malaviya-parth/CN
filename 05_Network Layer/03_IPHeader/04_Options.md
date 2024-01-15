@@ -1,5 +1,5 @@
 ## Options
-- THere are two types of IPv4 options: Single byte and Multiple byte.
+- There are two types of IPv4 options: Single byte and Multiple byte.
 - There are single byte option field
   - **No operation:** It is used as a filler & is used to make header multiple of 4 bytes.(Helps in HLEN representation.)
   - **End of Options:** As the name suggests it is the last byte of options & after it payload starts.

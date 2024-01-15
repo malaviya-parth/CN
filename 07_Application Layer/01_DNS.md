@@ -29,18 +29,18 @@
    - So Central authority only **assign part of the name** and not the entire name for example nature is commercial (.com) and name is Cisco.
    - Now Cisco will give name to department like "sales" and give name to computer in slaes department as "abc".
    - Domain name of "abc" computer will be abc.sales.cisco.com
-   - Also note that other organisations will also have "sales" department and can have computer name "abc" but as a whole domain name will be unique for example **abc.sales.cisco.com** and abc.**sales.tcs.com**
+   - Also note that other organisations will also have "sales" department and can have computer name "abc" but as a whole domain name will be unique for example **abc.sales.cisco.com** and **abc.sales.tcs.com**
 
 ### Domain Name Space
 - To have hierarchical namespace in DNS **domain name space** was designed.
-- In this design the names are defined in **inverted tree** structure with the root on the top.
+- In this design the names are defined in **inverted tree** structure with the root on the top.  
 ![Alt text](image.png)
 - The tree can have 128 level each node in a tree has a **label** which is a string of up to 63 characters.
 - The root label is Null or empty string.
 - DNS requires that children of a node have **different labels** which guanrantee uniqueness of domain names.
 - A **domain name** is sequence of labels seperated by dots.
 - Domain names are always read from the node up to the root and maximum size can be **255** characters and these are **case sensitive**.
-  - Domain name is complete combining all the characters.
+  - Domain name is complete combining all the characters.  
 ![Alt text](image-1.png)
 #### Domain name are of two types
 1. Fully Qualified Domain Name
@@ -56,7 +56,7 @@
    - Here the resolver can supply the missing part, called the suffix, to create an FQDN.
    - For example, if a user at the fhda.edu site wants to get IP address of the challenger computer, he or she can define the partial name **challenger**.
      - We write only abc.sales
-     - The resolver itslef solves and makes it abc.sales.cisco.com
+     - The resolver itself solves and makes it abc.sales.cisco.com
    - The DNS client adds the suffix atc.fhda.edu. before passing the address to the DNS server.
    - The DNS client normally holds a list of suffixes, from them it adds the suffix.
 
@@ -74,14 +74,14 @@ How many . can be there at max in domain name
 | www.funny.int. | www |
 
 ## DNS in Internet
-- In internet Domain Nmae space is divided into three different sections:
+- In internet Domain Name space is divided into three different sections:
    1. Generic Domains
    2. Country Domains
    3. Inverse Domain
 - arpa, org, com, in, etc. are Top Level domains.
 ### Generic Domains
 - The genric domains define registered hosts according to their generic behaviour.
-- The first level in the generic domains section allows **14 possible labels**.
+- The first level in the generic domains section allows **14 possible labels**.  
 ![Alt text](image-2.png)
 ### Country Domains
 - The country domains section uses two-character country abbreviations. Second labels can be organizational, or they can be more specific, nationl designations.
@@ -101,7 +101,7 @@ How many . can be there at max in domain name
 ## Distribution of NameSpace
 - It means that how this huge amount of information is distributed over servers.
 - Part of tree managed by server is called its **zone** and it is always contiguous part of tree.
-- We have not stored this entire information at one place to avoid single point of failure and responding request from all over the world places heavy load on system.
+- We have not stored this entire information at one place to avoid single point of failure and responding request from all over the world places heavy load on system.  
 ![Alt text](image-3.png)
 - Look here, the black part of tree will be stored on some other server and blue part on some other server.
   - Black part will be conected to blue by giving root of black some pointer address.
@@ -117,7 +117,7 @@ How many . can be there at max in domain name
    - It stores file for a zone for which it is responsible.
    - It is responsible for generating, maintaining and updating this zone file.
    ### Secondary
-   - It reansfer the complete information about zone from any other server (primary or secondary)  and the file store the file on it's disk.
+   - It transfer the complete information about zone from any other server (primary or secondary)  and the file store the file on it's disk.
    - It neither creates nor updates the zone file.
    - If updation is required then it can be done only by primary server and it sent the updated file to all secondary servers.
    - Also note that we can have only one primary server for zone and many secondary servers for the same zone.
@@ -134,7 +134,7 @@ How many . can be there at max in domain name
 - So it will send IP address of server whose domain is .com that is it **partially solve the query.**
 - Now local DNS will send query to .com server and it will send IP address of DNS server of Google organization because .com server don't store IP addresses of hosts of Google organisation.
 - Now again local DNS server send query to this Google DNS server which has IP address of www, mail, plus, etc hosts of Google and it will send IP address of www.google.com **now it is fully solved.**
-- Now query is resolved and local DNS server send reply to resolver and this resolver replies to web browser.
+- Now query is resolved and local DNS server send reply to resolver and this resolver replies to web browser.  
 ![Alt text](image-4.png)
 
 ## DNS Query
@@ -169,7 +169,7 @@ How many . can be there at max in domain name
 ## Registrars
 - How are new domains added to DNS? This is done through a registrar, a commercial organization accredited by **ICANN.** A registrar first verifies that the requested domain name is unique and then enters it into the DNS database. A fee is charged.
 - Today, there are many registrars; their names can be found at http://www/intenic.net
-- To register, the organization needs to give the name of its server and the IP address of the server. For example, a new commercial organization named **abc** with a server named **ws** and IP address 200.200.200.5 needs to give the following information to one pf the registrars:
+- To register, the organization needs to give the name of its server and the IP address of the server. For example, a new commercial organization named **abc** with a server named **ws** and IP address 200.200.200.5 needs to give the following information to one of the registrars:
   - Domain name: WS.wonderfil.com
   - IP address: 200.200.200.5
 

@@ -15,7 +15,7 @@
 
 - One extra bit called parity bit is added to the data word to make total number of 1s in the codeowrd as even (Some implementations use odd parity).
 - Minimum hamming distance is 2, so it can detect single bit error.
-- It can detect all odd number of bit errors(Whether odd parity or even parity systum) but cannot detect even number of bit errors.
+- It can detect all odd number of bit errors(Whether odd parity or even parity system) but cannot detect even number of bit errors.
 
 ## 2D Parity check Code
 

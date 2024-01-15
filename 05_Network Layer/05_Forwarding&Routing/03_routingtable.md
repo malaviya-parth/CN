@@ -57,12 +57,15 @@ The identifier of the output interface on which this packet will be forwarded is
 ## GATE 2015
 Consider the following routing table at an IP router;
 | Network No. | Net Mask | Next Hop |
+| ----------- | -------- | ------- |
 | 128.96.170.0 | 255.255.254.0 | Interface 0 |
 | 128.96.168.0 | 255.255.254.0 | Interface 1 |
 | 128.96.166.0 | 255.255.254.0 |     R2      |
 | 128.96.164.0 | 255.255.252.0 |     R3      |
 |    0.0.0.0   |    Default    |     R4      |
+
 For each IP address in Group I identify the correct choice of the next hop from Group II  using the entries from the routing table above.
+
 | Group 1 | Group 2 |
 | ------- | ------- |
 | i) 128.96.171.92  | a) Interface 0  |

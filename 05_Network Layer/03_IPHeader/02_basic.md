@@ -33,9 +33,9 @@
   - 4th Bit(D): Delay
   - 5th Bit(T): Throughput
   - 6th Bit(R): Reliability
-  - 7th Bit(C): COst
+  - 7th Bit(C): Cost
     - If we require minimum delay: 1000
-    - Maximum THorugput: 0100
+    - Maximum Througput: 0100
     - Min Delay & Max Reliabilty: 1010
     - Max Throughput and Min Cost: 0101
   - 8th Bit: Future Use
@@ -54,7 +54,7 @@
 - Header Checksum(16):
   - Error Detection scheme for header only
   - Done by ICMP
-  - Header checksum is processed 2 times at a router once, when it is arrived and second after procesing when it is to ve sent again header checksum is calculated, updated and sent.
+  - Header checksum is processed 2 times at a router, one when it is arrived and second after procesing when it is to be sent, again header checksum is calculated, updated and sent.
   - Updation in checksum happens due to the TTL and some other fields, changes in hops.
 
 ## Question

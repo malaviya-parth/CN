@@ -12,7 +12,7 @@
 - For flow control there will be byte oriented sliding window protocol.
 
 ## TCP Header ⭐
-- Minimum 20 bytes and maximum 60 bytes.
+- Minimum 20 bytes and maximum 60 bytes.  
 ![Alt text](image.png)
 - Source Port address 16 bit field used to identify application program in host sending the segment.
 - Destination Port address 16 bit field used to identify application program in host receiving. the segment.
@@ -46,7 +46,7 @@
 - Which means in worst case lost packet can arrive at receiver in 3 min.
 - If wrap around time is more than Life time then no issue will be there because until the same packet number chance come to be used meanwhile the old packet will be destroyed, so receiver can differentiate the packets.
 - But if wrap around time is not more than Life time than another packet carrying other data but with same sequence number can come to receiver and receiver may mistake it as previous required segment.
-  - Here Problem of duplicacy occurs.
+  - Here Problem of duplicacy occurs.  
 ![Alt text](image-1.png)
 ### Solution to Less Wrap around time problem
 1. Decrease Bandwidth: Not a good solution as user want more & more Bandwidth.
@@ -83,7 +83,7 @@
 - Suppose sender sends segment and sets window size to 400, it means when receiver responds to sender then receiver must send data not more than 400 Bytes.
 ### Checksum
 - 16 bit field.
-- Checksum calculation smae as UDP.
+- Checksum calculation same as UDP.
 - For TCP pseudoheader protocol value is 6.
 - Here inclusion of checksum is mandatory.
 ### Urgent Pointer
@@ -150,17 +150,20 @@ Message: 1000 bytes. TCP send 4 segments of 100,200,400 & 300 bytes. Byte No. of
 If Bandwidth is 8mbps. Find Wrap around Time for TCP.
 
 ### Solution
--  $ 8 \times 10^{6}$ bits per second
--  $ 1 \times 10^{6}$ bytes per second
+-  $8 \times 10^{6}$ bits per second
+-  $1 \times 10^{6}$ bytes per second
 -  The wrap around will occur after sending 4GB data.
--  Thereofre, wrap around time: $\frac{2^{32}}{10^{6}} $ = 4294.9 seconds.
+-  Thereofre, wrap around time: $\frac{2^{32}}{10^{6}}$ = 4294.9 seconds.
 
 ## GATE 2018
 Consider a long lived TCP session with an end-to-end bandwidth of 1 Gbps. The session starts with sequence no. 1234. The minimum time(rounded to closest integer) before this sequence number can ne used again?
 
 ### Solution
+- As discussed Wrap-around time depends upon Bandwidth
+- We have 32 bits in sequence number, so we can give $2^32$ sequence numbers at max.
+- Given 1 Giga bits per second, so need to divide by 8 to get Giga Bytes per second
 - Answer: $\frac{2^{35}}{10^{9}}$ = 34.36 seconds
-- Answer: 35 to clost integer, we took ceil value here as 34.3 is the least time required so to closest integer the time must be more than that.
+- Answer: 35 to closest integer, we took ceil value here as 34.3 is the least time required so to closest integer the time must be more than that.
 
 ## Question
 How many extra bits are needed for SN if B/W is 1GBps & LT is 3 min.
@@ -186,7 +189,7 @@ How many extra bits are needed for SN if B/W is 1GBps & LT is 3 min.
   - y = 38 bits (6 bits extra)
 
 ## GATE 2022
-Consider the data transfer using TCP over a 1 Gbps link. Assuming that maximum segment lifetime is set to 60 seconds, the minimum number of bits fro the sequence number field of the TCP header, to prevent the sequence number space from wrapping around during the MSL is __.
+Consider the data transfer using TCP over a 1 Gbps link. Assuming that maximum segment lifetime is set to 60 seconds, the minimum number of bits for the sequence number field of the TCP header, to prevent the sequence number space from wrapping around during the MSL is __.
 
 ### Solution
 - Life time is 60 seconds so wrap around must be more than that.

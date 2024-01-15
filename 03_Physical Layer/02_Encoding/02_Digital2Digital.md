@@ -27,7 +27,7 @@ graph TD;
 - The signal level does not change during the bit interval.
 - The signal level changes only at the beginning of the bit interval.
 
-**Figure**
+**Figure**  
 ![Alt text](../../Assests/image15.png)
 
 **DisAdvantages**
@@ -43,7 +43,7 @@ graph TD;
 - The signal level changes only at the beginning of the bit interval.
 - The signal level does not change during the bit interval.
 
-**Figure**
+**Figure**  
 ![Polar NRZ-L](../../Assests/image14.png)
 
 **DisAdvantages**
@@ -59,7 +59,7 @@ graph TD;
 - The signal level changes only at the beginning of the bit interval.
 - The signal level does not change during the bit interval.
 
-**Figure**
+**Figure**  
 ![Alt text](../../Assests/image16.png)
 - Here we have taken initial state to be +ve, we can also take initial state to be -ve.
 

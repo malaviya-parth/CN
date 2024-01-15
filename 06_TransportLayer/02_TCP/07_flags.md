@@ -24,7 +24,7 @@
 - It wants to abort the process, but there is already huge data  in the buffer.
 - It issues (ctrl + C) command to stop, but this will be stored at the end of the queue.
 - It will be delivered to receiving application program after all data have been processed.
-- The solution is to send with IRG bit set.
+- The solution is to send with URG bit set.
 - Application program tells sending TCP that piece of data is urgent.
 - Sending TCP creates a segment and inserts the urgent data at beginning of the segment.
 - Rest segment can contian normal data of buffer.

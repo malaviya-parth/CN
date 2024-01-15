@@ -10,7 +10,7 @@ graph TD;
 
 **Figure 1: Simple Analog Signal**
 
-![Alt text](../Assests/image4.png)
+![Alt text](../../Assests/image4.png)
 
 - A simple analog signal is a continuous function of time that conveys information.
 
@@ -41,23 +41,23 @@ graph TD;
 
 - Phase = 0&deg; or 360&deg; or 0 rad or 2 $\pi$ rad
 
-![Alt text](../Assests/image6.png)
+![Alt text](../../Assests/image6.png)
 
 - Phase = 90&deg; or $\frac{\pi}{2}$ rad
 
-![Alt text](../Assests/image7.png)
+![Alt text](../../Assests/image7.png)
 
 - Phase = 180&deg; or $\pi$ rad
 
-![Alt text](../Assests/image8.png)
+![Alt text](../../Assests/image8.png)
 
 - Phase = 270&deg; or $\frac{3\pi}{2}$ rad
 
-![Alt text](../Assests/image9.png)
+![Alt text](../../Assests/image9.png)
 
 ## Q. Frequency and Period for the following signal
 
-![Alt text](../Assests/image5.png)
+![Alt text](../../Assests/image5.png)
 
 - There is no change in signal. So, frequency is 0 Hz and period is $\infty$.
 
@@ -73,26 +73,26 @@ graph TD;
 
 **Figure 3: Wavelength of a signal**
 
-![Alt text](../Assests/image10.png)
+![Alt text](../../Assests/image10.png)
 
 ## Composite Analog Signal
 
-- A composite analog signal is a combination of simple analog signals.
-![Conposite Signal](../Assests/image11.png)
+- A composite analog signal is a combination of simple analog signals.  
+![Conposite Signal](../../Assests/image11.png)
 
 - We must try to plot Frequency domain plot of the signal to understand the signal better and also it is easy to analyze the signal in frequency domain.
 
-**Time Domain Plot**
-![Alt text](../Assests/image12.png)
+**Time Domain Plot**  
+![Alt text](../../Assests/image12.png)
 
-**Frequency Domain Plot**
-![Alt text](../Assests/image13.png)
+**Frequency Domain Plot**  
+![Alt text](../../Assests/image13.png)
 
-**Frequency Spectrum**
+**Frequency Spectrum**  
 - It is the collection of all frequencies a composite signal contains.
 - For above the Frequency Spectrum = {2,3}
 
-**Bandwidth**
+**Bandwidth**  
 - The bandwidth of a composite signal is the difference between the highest and the lowest frequencies contained in that signal.
 - For above the Bandwidth = 3 - 2 = 1 Hz
 

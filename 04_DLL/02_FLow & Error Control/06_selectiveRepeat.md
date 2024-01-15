@@ -31,8 +31,9 @@ Here Selective repeat has efficiency less than GBN, but have better Bandwidth ut
 If sender wants to send 10 packets and sender window size is 5, Every 5th packet is lost. Then how many frames will be transmitted by sender?
 
 ### Solution
-- 1,2,3,4,_,5,6,7,8,_,9,10
+- 1,2,3,4,\_,5,6,7,8,\_,9,10
 - $\therefore$ Total number of 12 frames.
+- This shows the better Bandwidth Utilization.
 
 ## GATE 2016
 B/W = 128 kbps, Propagation delay = 150 ms, Selective Repeat Protocol, Frame Size = 1 KB, T.T. of ACK $\approx$ 0 ms. Minimum no. of bits for sequence number field to achieve 100% utilization.
@@ -42,7 +43,7 @@ B/W = 128 kbps, Propagation delay = 150 ms, Selective Repeat Protocol, Frame Siz
 - a = $\frac{Propagation \; Delay}{Transmission \; Time}$ = $\frac{150 \; ms}{64 \; ms}$ = 2.34
 - Efficieny = 1
   - N = 1 +2a = 1 + 2(2.34) = 5.68 $\approx$ 6
-  - We took 6 not 5 because sendet must not remain idle
+  - We took 6 not 5 because sender must not remain idle
 - N for Sender and N for receiver = 6
 - Total = 12 frames
 - $\therefore$ Minimum no. of bits for sequence number field = 4

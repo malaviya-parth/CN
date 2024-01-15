@@ -20,7 +20,7 @@
   - Active open, Active close, Passive open, etc. are local input
   - SYN+ACK, ACK, FIN, etc. are remote Input
   - SYN, ACK, etc. are output
-- Look we can see that when client sent SYn the server is in LISTEN state and so replies with SYN+ACK.
+- Look we can see that when client sent SYN the server is in LISTEN state and so replies with SYN+ACK.
 - If server is in closed state, server replies with RST and says to reset the connection.
 #### Client and Server Side series of States
 ![Alt text](image-8.png)
@@ -31,7 +31,7 @@
 ![Alt text](image-9.png)
 - Here immediately the ACK+FIN is not sent rather server waits for some time.
 - Packet is sent after passive close request from server process packet is sent.
-- After the FIN+ACK received by the client, it immediately sends the ACK.
+- After the FIN+ACK received by the client, it immediately sends the ACK.  
 ![Alt text](image-10.png)
 
 ### Simultaneous Open (Rare Case)
@@ -56,7 +56,7 @@
 - To handle this lost packet cases of ACK after FIN client wait for 2MSL, if within 2MSL if FIN by server not comes, client understand that the packet might have reached the server and connection is successfully terminated.
 
 ## Question
-Suppose Client sneds SYN but it does not reach to the server what state the client will be?
+Suppose Client sends SYN but it does not reach to the server what state the client will be?
 
 ### Solution
 - Doesn't matter about packet reached to server or not the state of client will be SYN-SENT.

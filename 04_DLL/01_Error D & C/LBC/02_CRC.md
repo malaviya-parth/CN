@@ -42,7 +42,7 @@ D.W.   C.W.
 - Notation format
   - $R(x)$ = $C(x)$ + $E(x)$
   - $\frac{R(x)}{G(x)}$ = $\frac{C(x)}{G(x)} + \frac{E(x)}{G(x)}$
-- For message to be error free LHS must be zero whic hmeans both the term in RHS must be zero.
+- For message to be error free LHS must be zero which means both the term in RHS must be zero.
   - Now Dataword gives zero remainder when divided by G(x) $\rightarrow$ $C(x)$ = $D(x)G(x)$
   - $E(x)$ should also give zero remainder when divided by G(x), Ideally if no error then $E(x)$ = 0, but if $E(x) \neq$ 0 and is divisible by G(x) then also $\frac{E(x)}{G(x)}$ = 0. Hence, in such case error is not detected.
 - $\therefore$ CRC is not perfect.
@@ -71,7 +71,7 @@ D.W.   C.W.
   - So if we design divisor in such a way that x+1 is factor of it then it will always detect error as odd error polynomial is not divisible by x+1.    
 
 ## Characteristics of Divisor
-- It must have atleast 2 terms (Single term means divisor is an even no. & single nit error can't be detected)
+- It must have atleast 2 terms (Single term means divisor is an even no. & single bit error can't be detected)
 - Co-efficient of $x^1$ must be 1 (So that divisor becomes an odd number & all single bit errors can be detected)
 - Must be a multiple of $x + 1$. (So that odd number of errors can be detected)
 

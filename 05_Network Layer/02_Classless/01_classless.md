@@ -1,4 +1,4 @@
-## Need of CLassless Addressing
+## Need of Classless Addressing
 1. Wastage of address
 2. Lot of wastage for single user
 

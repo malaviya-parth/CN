@@ -12,7 +12,7 @@
 
 ## Passive Hub
 
-- It simply act as a connector to connect fifferent wires.
+- It simply act as a connector to connect different wires.
 - This type of hub is part of transmission media so it's below physical layer.
 - It simply broadcast the signal to all ports except the one from which it received the signal.
 - Since it is below physical layer so it can't change(regenerate or Amplify) the signal before broadcasting it.
@@ -136,7 +136,7 @@
 ## Collision Domain & Broadcast Domain
 
 - Collision Domain is the part of Network in which collision can take place.
-- Broadcast Domain is the part of network in which broadcasting can eb done.
+- Broadcast Domain is the part of network in which broadcasting can be done.
 - In case of Devices like Actice Hub, Repeator or Passive Hub connected devices the whole network is the collision domain. Same for the Broadcast Domain. As both can occur on entire netwrok Domain for both is 1.
 - In case of Bridge/ Layer -2 switch, they broadcast the packet to entire network. For the collision domain collision can occur on the side of LAN but never across LAN as discussed Bridges are collision free.
   - $\therefore$ Collision domain for Bridge/Layer2 switch is the number of ports they have.

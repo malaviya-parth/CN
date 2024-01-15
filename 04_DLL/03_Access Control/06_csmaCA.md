@@ -11,7 +11,7 @@
 ## Interframe Space (IFS)
 - In CSMA/CA if channel is busy the station will keep on sensing it but as soon as the channel is idle it will not send data immediately. It will wait for some time. This time is called Interframe Space (IFS).
 - IFS time is the time needed for a signal to reach the given station from the farthest station in the network.
-- THis protocol assumes that even though the channel may appear idle when it is sensed, a distant station may have already started transmitting.
+- This protocol assumes that even though the channel may appear idle when it is sensed, a distant station may have already started transmitting.
 - It gives Priority to the stations.
 
 ## Contention Window (CW)

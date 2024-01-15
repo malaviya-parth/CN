@@ -27,7 +27,7 @@ graph TD;
 
 ## Character Oriented Approach
 - Entire frame is multiple of 8 bits i.e. data is used as Header & Tralier are multiple of 8 bits.
-- Flag is special character of 8 bits which added at the start and end of frame whic hgives information about frame boundaries.
+- Flag is special character of 8 bits which added at the start and end of frame which gives information about frame boundaries.
 - If flag appears in the data then byte stuffing is used i.e. another special character called escape character is added before flag and hence receiver will interpret the flag as data.
 - If Escape character appears in the data then it must be escaped by another escape character.
 - If both flag and escape character appears in the data then one escape character for each is added.

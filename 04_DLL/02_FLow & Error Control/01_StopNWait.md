@@ -56,13 +56,15 @@
 
 ## Efficiency
 
-- It take T.P. + T.T. time to send one frame fro msender to receiver.(Neglecting Q.T. + P.T.)
+- It take T.P. + T.T. time to send one frame from sender to receiver.(Neglecting Q.T. + P.T.)
 - Similarly, it takes T.P. time to send ACK from receiver to sender. (Acknowledgement is of negligible size so T.T. is negligible)
-- So, total time taken to send one frame & receive ACK is 2(T.P. + T.T.)
+- So, total time taken to send one frame & receive ACK is 2(T.P.) + T.T.
 - Here, Useful time(Amount of time sender is busy) = T.T.
 - Cycle time (Time to send frame and Receive ACK)= 2(T.P.) + T.T.
 - Efficiency = $\frac{Useful Time}{Cycle Time}$
 - = $\frac{T.T.}{2(T.P.) + T.T.}$
+- If Processing and queuing delay also there then formula will be
+  - = $\frac{T.T.}{2(T.P.) + T.T. + Q.D. + P.D.}$
 - = $\frac{1}{1 + \frac{2(T.P.)}{T.T.}}$
 - = $\frac{1}{1 + 2\alpha}$, where $\alpha$ = $\frac{T.P.}{T.T.}$
 - 2 $\times$ T.P. is called as Round Trip Time(RTT).
@@ -81,7 +83,7 @@ $\alpha$ = $\frac{T.T.}{2(T.P.)+T.T.}$ = $\frac{1}{2(10)+1}$ = $\frac{1}{21}$
 Throughput = $\eta$ $\times$ Bandwidth = $\frac{1}{21}$ $\times$ 1 Mbps = $\frac{1}{21}$ Mbps = 47.6 kbps
 
 ## Question
-If efficieny is grater than or equal to 50$% find the relationship b/w T.T. & T.P. in stop & wait ARQ.
+If efficieny is grater than or equal to 50% find the relationship b/w T.T. & T.P. in stop & wait ARQ.
 
 ### Solution
 $\eta$ $\geq$ $\frac{1}{2}$  

@@ -33,7 +33,7 @@ Which Transprot layer protocol is used to support Email?
 - TCP
 
 ## GATE 2013
-Transport Protocol for reat time multimedia, file transfer, DNS & email respectively.
+Transport Protocol for real time multimedia, file transfer, DNS & email respectively.
 1. TCP, UDP, UDP & TCP
 2. UDP, TCP, TCP & UDP
 3. UDP, TCP, UDP & TCP
@@ -81,10 +81,10 @@ Stateful application layer protocol
 - TCP is also stateful but it is not application layer protocol
 
 ## GATE 2011
-Consider thedifference activities related to email.
+Consider the different activities related to email.
 - m1: Send an email from mail client to mail server
 - m2: Download an email from mailbox server to a mail client
-- m3: Checking email in web browser
+- m3: Checking email in web browser  
 Which app. protocol is used in each activitiy?
 1. HTTP,SMTP,POP
 2. SMTP,FTP,HTTP

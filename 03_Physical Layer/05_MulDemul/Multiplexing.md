@@ -51,7 +51,7 @@ M -->|WDM| WDM[Wavelength Division Multiplexing];
 - Prism is used to separate the light into different wavelengths.
 
 > In Electric signals, FDM is used.  
-> In Fiber optics, WDM is used.
+> In Fiber optics, WDM is used.  
 > In Digital signals, TDM is used.
 
 ## TDM (Time Division Multiplexing)
@@ -107,6 +107,6 @@ M -->|WDM| WDM[Wavelength Division Multiplexing];
 - Propagation delay = $10^3 / 2 * 10^8 = 5 * 10^-6$ sec = 5 microseconds
 - Transmission delay = $100 / 10 * 10^6 = 10 * 10^-6$ sec = 10 microseconds
 - Efficieny of TDM = T.T. / (T.P. + T.T.) = 10 / (5 + 10) = 2/3
-- Throguhput = Efficiency * Bandwidth = 2/3 * 10 Mbps = 6.66 Mbps
-- Given Throuput of each station = 2/3 Mbps
+- Throughput = Efficiency * Bandwidth = 2/3 * 10 Mbps = 6.66 Mbps
+- Given Throughput of each station = 2/3 Mbps
 - Maximum number of stations = 6.66 / (2/3) = 10

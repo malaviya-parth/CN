@@ -13,7 +13,7 @@ What should station do if channel is busy and what should station do if channet 
 - If channel is busy, station will keep on sensing the channel until it becomes idle and then transmits immediately.
 - Probability of collision will be very high.
 - If Bandwidth-Delay product is high, then collision probability will be high.
-- Ethernet LAN uses 1-persistent CSMA.t
+- Ethernet LAN uses 1-persistent CSMA.
 - If channel is idle, station transmits immediately.
 
 ### Non-persistent CSMA

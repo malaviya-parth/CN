@@ -2,8 +2,8 @@
 
 **Digital signals** are signals that can take on only a finite number of values. The most common digital signals are binary signals, which can take on only two values, 0 and 1.
 
-**Figure 1: Digital Signal**
-![Alt text](../Assests/image14.png)
+**Figure 1: Digital Signal**  
+![Alt text](../../Assests/image14.png)
 
 ## Terminologies of Digital Signals
 
@@ -31,6 +31,6 @@
 - Bit length is 50 m.
 - Bit interval = $\frac{1}{bit rate}$ = $\frac{1}{6}$ * $10^6$ = 0.167 micro sec.
 
-## Q. Find the bit rate, if onr bit last for 1 micro sec on Transmission medium.
+## Q. Find the bit rate, if one bit last for 1 micro sec on Transmission medium.
 
 - Bit rate = $\frac{1}{bit interval}$ = $\frac{1}{1 \mu s}$ = 1 Mbps

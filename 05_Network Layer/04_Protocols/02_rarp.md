@@ -14,7 +14,7 @@
 ## BOOTP & DHCP
 - Both are application layer protocols
 - Both can work in subnetting i.e. client & server may be in different network.
-- Since both these rptocols works at application layer, so every message is generated at application layer & it is encapsulated in user datagram UDP is used at transport layer [Port No. 67 for server & 68 for client]
+- Since both these protocols works at application layer, so every message is generated at application layer & it is encapsulated in user datagram UDP is used at transport layer [Port No. 67 for server & 68 for client]
   - We use UDP because DHCP and BOOTP requests are small in size and using UDP it will save the network bandwidth.
 - This user datagram is encapsulated in datagram at N/W layer but problem is that what sender fill in SIP and DIP of IP Header.
   - SIP: 0.0.0.0 & DIP: 255.255.255.255
@@ -40,13 +40,14 @@
 
 ## DHCP
 - Everything is same as BOOTP but DHCP server has 2 databases one is used for static mapping whle other for dynamic mapping.
-- Whenever query packet arrives at DHCP server then it first searches the database having static mapping if the entry is missing then it will allocate a random IP address from the pool of IP addresses to the client & male an entry in database containing dynamic mapping for some time [say 10 min.]
+- Whenever query packet arrives at DHCP server then it first searches the database having static mapping if the entry is missing then it will allocate a random IP address from the pool of IP addresses to the client & make an entry in database containing dynamic mapping for some time [say 10 min.]
 - After that renew request must come from client & another IP is given but if request doesn't come then connection is terminated automatically.
 - Static IP addresses are still needed for servers like webserver, email server, file server etc. because they should go down even for a minute that's why.
 
 ### Dynamic Database Entry
-MAC  IP LeaseTime  
- Ma  Ia    10
+| MAC | IP | LeaseTime |
+| --- | -- | --------- |
+| MACa  | IPa | 10 |
 
 ### Advantages
 - Problem of subnetting solved

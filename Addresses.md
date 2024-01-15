@@ -4,7 +4,6 @@
     - Unique address within Internet(Interconnected Network).
 3. Port Address
     - Unique address to identify a process within a host(Computer).
-4. 
 
 - Data Link Layer is responsible for transferring data from one node to adjacent node.
 - Network Layer is responsible for transferring data from one host to another host.
@@ -14,7 +13,7 @@
 
 ## Transfer of Packets From Sender to Receiver
 ![Alt text](./Assests/image1.png)
-- Below the Device given are Logical Address and Physucal Address.
+- Below the Device given are Logical Address and Physical Address.
 
 ### In the above Image how many times various Layers are accessed?
 ![Alt text](./Assests/image2.png)

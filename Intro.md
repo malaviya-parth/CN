@@ -122,7 +122,7 @@
 
 ### Question
 
-1. Suppose data is transferred from sender to receiver and there are n intermediate Nodes. 
+1. Supose data is transferred from sender to receiver and there are n intermediate Nodes. 
     1. How many times data is copied?
     - Answer: n+1 times
     - Explanation: Data is copied at each node and at sender and receiver

@@ -1,11 +1,11 @@
 ## Fragmentation:
 - Application Layer bits are segemented at transport layer
   - Maximum Segment size: 65515
-  - Maximum Payload Size: 655495
+  - Maximum Payload Size: 65495
 - Then it is converted into Datagram in network layer
   - Maximum Datagram Size: 65535
   - Maximum Payload Size: 65515
-- Then it is converted into fram at DLL
+- Then it is converted into frame at DLL
   - Maximum Frame Size: 1518 bytes
   - Maximum Payload Size: 1500 bytes
 - From Netwrok layer to DLL we need to divide the packet into small frames known as fragmentation.
@@ -40,7 +40,7 @@
 ## Identification
 - The Identification field in the IP header is used to recognize whether the fragments belong to the same segment.
 - IP protocol maintains a counter to enable the datagrams.
-- THis counter is initialized by a +ve no. & is incremented whenever a datagram leaves a machine.
+- This counter is initialized by a +ve no. & is incremented whenever a datagram leaves a machine.
 - When Datagram is fragmented then every field of header is copied & so is this field.[Except 3 field flags, FO & TL]
 - Whenever 2 or more datagrams have same ID then this means they are fragmented datagrams of a single datagram.
 - Combination of SIP & ID must uniquely define a datagram as it leaves the source host.
@@ -98,7 +98,7 @@ If the packet arrives with m bit value 0. Is it first, middle or last fragment? 
 - Also, value of fragmentation offset is not given else we can tell about fragmentation.
 
 ## Question
-If the packet arrives with m bit value 0. Is it first, middle or last fragment? Can we say about fragmentation is done or not?
+If the packet arrives with m bit value 1. Is it first, middle or last fragment? Can we say about fragmentation is done or not?
 
 ### Solution
 - Since m bit is one, so it is not last fragment.
@@ -154,7 +154,7 @@ If length of IP datagram is 1000 bytes & we need to make fragments of 100 bytes.
   - Second Fragment = 180
   - Third Fragment = 260
   - So on...
-- Number of fragments for 900 byte of data = $\frac{900}{80} = 12$\
+- Number of fragments for 900 byte of data = $\frac{900}{80} = 12$
 - Total Fragments = 13
 - The last fragment contains only 20 byte of data(80*11=880) + 20 byte of header.
 - Total number of bytes sent = 1200 + 40 = 1240 bytes
@@ -220,7 +220,7 @@ If fragmentation is done for IP fragment which is not the last fragment of datag
 ### Solution
 - Since the parent fragment is not last so m=1 for parent fragment
 - So, also m bit will be 1 for all the child fragments as there will be other fragments coming behind.
-- 
+
 ## Question
 If fragmentation is done for IP fragment which is the last fragment of datagram then what will be the m bit value for the last fragment of given IP fragment?
 

@@ -47,8 +47,13 @@ If header of frame allow 'm' bit overhead for sequence no. then what can be maxi
 ### Solution
 - m bit overhead allowed so sequence no. can be 0 to $2^m-1$
 - Suppose m =2, then we have window size 0,1,2,3
-  - Now if 0,1,2,3 sent by sender but the ACK sent by receiver is lost, then sender will retransmit all the frames.
-  - While retransmitting, it will send 0,1,2,3 again. This time the window at receiver side will be at $0_1$ and it will accept this 0 which will create duplicacy.
+  - Now if 0,1,2,3 sent by sender.
+  - Receiver receives 0 and sends ACK of it, Receiver window shifts one step ahead.
+  - Similarly receiver receives 1,2,3 and sends ACK of them.
+  - Now receiver will be waiting for seq no. 0 as it received 0,1,2,3.
+  - But the ACK of 0 sent by receiver is lost.
+  - Then sender will retransmit all the frames 0,1,2,3.
+  -  This time the window at receiver side will be at $0_1$ and it will accept this 0 which will create duplicacy.
   - Hence, we can't implement GobackN where N = $2^m$
 - Hence, maximum value of N = $2^m-1$   
   - Whenever ACK is lost if we have an extra sequence no. then receiver will discard the duplicate frame.
@@ -89,9 +94,9 @@ B/w = 20kbps, Tp = 400 ms, GB10, Frame Size = 100 Bytes. What is the maximum dat
 ### Solution
 Maximum Data Rate possible = Throughput  
 Efficiency = $\frac{N}{1+2a}$
-  - TT = (100*8)/20*1000 = 40 ms
+  - TT = (100\*8)/20\*1000 = 40 ms
   - Efficiency = $\frac{10}{1+2*400*10^{-3}/40*10^{-3}}$ = 47.6%
-Throughput = Efficiency * Bandwidth = 47.6% * 20 kbps = 9.52 kbps
+  - Throughput = Efficiency * Bandwidth = 47.6% * 20 kbps = 9.52 kbps
 
 ## GATE 2008
 1 Mbps satelite link connects 2 ground stations. B/W = 1 Mbps, Distance = 36,504 Km, Speed = 3 $\times 10^8$, GobackN with window size 127 is used. Channel utilization = 25%. What is the packet size?
@@ -130,7 +135,7 @@ Station A needs to send 9 packets to station B using GB-N(N=3). If every 5th pac
 - ACK of 9 will be received.
 - Process over, total packets sent = 16.
 
-### GATE 2015
+## GATE 2015
 Distance is 8000 km, B/W =500 Mbps, Speed = 4 * $10^6$ m/s, GBN protocol is used with packet size = $10^7$ bits. Network is to be used to it's full capacity. Minimum Size in bits of the sequence no. field??
 
 ### Solution

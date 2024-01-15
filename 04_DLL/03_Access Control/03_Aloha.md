@@ -4,9 +4,9 @@
 - Aloha was invented in 1970s at the University of Hawaii
 - It was originally developed for wireless LANs, but it is also used in shared medium wired LANs
 - **ASSUMPTION:** Each Station sends frames of same size
-- **WORKING:** Whenever station want to send data it can send on the channel, i.e. there is no fixed rule defined which will tell station when to sned data.
+- **WORKING:** Whenever station want to send data it can send on the channel, i.e. there is no fixed rule defined which will tell station when to send data.
 - Hence Colliision chances are very high.
-- Sendser after sending data will wait for ACK from receiver.
+- Sender after sending data will wait for ACK from receiver.
 - This waiting time is known as Time-out & is equal to minimum possible round trip time(2 * Tp) between two stations.
 - After Time out, station will again send data but if it immediately tries to send data then collision will occur & time out will also be same. Hence no station can effectively send data.
 - Now we need to take care of 2 things

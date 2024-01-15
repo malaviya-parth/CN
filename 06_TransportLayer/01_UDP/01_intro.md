@@ -19,7 +19,7 @@
 3. 49152 - 65535 ( Dynamic/ Private Port Numbers )
 
 - **Well-Known Ports:** Ports ranging from 0 - 1023 are assigned and controlled by IANA. These are assigned to processes which are related to core networking tasks like port number for DNS is 53, DHCP client and server is 67, 68, SNMP is 161 etc.
-- **Registered Port:** These are not assigned or controlled by IANA. THey can only be registered with IANA to prevent duplication.
+- **Registered Port:** These are not assigned or controlled by IANA. They can only be registered with IANA to prevent duplication.
 - **Dynamic Ports:** These are neither controlled nor recorded. They can be used by any process. These are temoparay ports.
 
 ## Socket Address

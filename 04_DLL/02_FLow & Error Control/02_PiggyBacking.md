@@ -1,8 +1,13 @@
 # Piggybacking
 
 - In order to improve efficieny, ACK is not sent in seperate frame rather data frame is used to send ACK.
-- THe technique of temporary delaying the outgoing ACK. So that it can be hooked on to the next outgoing data frame is called as Piggybacking.
+- The technique of temporary delaying the outgoing ACK. So that it can be hooked on to the next outgoing data frame is called as Piggybacking.
 - It is not always possible to use piggybacking.
+
+## Efficiency
+- Here Receiver is also sending packet of some considerable size, so efficiency will depend on that as well
+- $\eta$ = $\frac{TTs + TTr}{TTs + TTr + 2TP}$
+- Sincde Receiver also has has transmission time, it will also be considered under useful cycle.
 
 ## Question
 - Efficiency of Stop&Wait if piggybacking is used?

@@ -12,7 +12,7 @@
     1. The packet is put at the end of the input queue while waiting to be checked.
     2. The processing module of the router removes the packet from the input queue once it reaches the front of the queue and uses it's routing table and the destination address to find the route.
     3. The packet is put in the appropriate output queue and waits it's turn to be sent.
-- We need to be awar of two issues:
+- We need to be aware of two issues:
   - if the rate of packet arrival is higher than the packet processing rate, the input queue becomes longer and longer.
   - if packet departure rate is less than packet processing rate, the output queues become longer and longer.
 - If there is insufficient memory to hold these packets, then packets will be lost. Adding more also may not help in certain situations.
@@ -28,7 +28,7 @@
   2. Token Bucket
 
 ## Leaky Bucket
-- If a bucket has a small hole at the bottom, the water leaks form the bucket at a constant rate as long as there is water in the bucket. The rate at which the water leaks does not depend on the rate at whic hthe water is input to the bucket unless the bucket is empty. The input rate may vary but the output rate is constant.
+- If a bucket has a small hole at the bottom, the water leaks form the bucket at a constant rate as long as there is water in the bucket. The rate at which the water leaks does not depend on the rate at which the water is input to the bucket unless the bucket is empty. The input rate may vary but the output rate is constant.
 - Also, once the bucket is full any additional water entering it spills over the sides and is lost. Similarly, in networking a technique called leaky bucket can smooth out bursty traffic. Busty chunks are stored in the bucket and sent out at an average rate.
 - Let us assume that the network has committed a bandwidth of 3 Mbps for a host. The use of the leaky bucket shapes the input traffic to make it conform to this commitment. The host sends a burst of data at a rate of 12 Mbps for 2s, for a total of 24 Mbits. The host is silent for 5s and then sends data at a rate of 2 Mbps for 3s for a total of 6 Mbits of data. In all host send 30 Mbits of data in 10s.
 - The leaky bucket smooths the traffic by sending out data at a rate of 3Mbps during the same 10s. Without the leaky bucket, the beginnning burst may have hurt the network by consuming more bandwidth than is set for this host.
@@ -38,7 +38,7 @@
 - A FIFO queue holds the packets. If the traffic consists of fixed-size packets, the process removes a fixed number of packets from the queue at each tick of the clock.
 - If the traffic consists of variable-length packets, the fixed output rate must be based on the number of bytes or bits instead of packets for e.g. if the rule is 1024 bytes per tick, a single 1024-byte packet can be admitted on a tick, two 512-byte packets, four 256-byte packets, and so on.
 #### Algorithm for variable length packet
-- Initialize a counter tto n at t he tick of the clock.
+- Initialize a counter to n at the tick of the clock.
 - If n is greater than the size of the packet, send the packet and decrement the counter by the packet size. Repeat this step until n is smaller than the packet size.
 - Reset the countner and go to step 1.
 
@@ -80,6 +80,7 @@ As an example of a leaky bucket, imagine that a computer can produce data at 200
 - Capacity: 7.36 Mbits
 - Time to empty:
   - $\frac{7.36}{16}$ = 0.46 seconds = 460 ms
+  - 7.36M is left after 40ms, as we emptied 640K in the first 40 ms when the data was incoming.
   - Total time to empty: 40 + 460 = 500 ms
 
 ## Question
@@ -97,7 +98,7 @@ Computer A has 19.5 MB to send on a network and transmits the data in a burst @ 
 - $Capacity =\frac{26 \times (6-4)}{8}$ = 6.5 MB
 
 ## Question
-A leaky bucket is at the host network interface. The data rate om the network is 2 MBps and the data rate on the link from the host to the bucket is 2.5 MBps.
+A leaky bucket is at the host network interface. The data rate on the network is 2 MBps and the data rate on the link from the host to the bucket is 2.5 MBps.
 1. Suppose the host has 250 MB to send onto the network and it sends the data in a burst. What should be the minimum capacity of the bucket in order that no data is lost?
 2. Suppose the capacity of the bucket is 100MB. What is the longest burst time from the host in order that no data is lost?
 

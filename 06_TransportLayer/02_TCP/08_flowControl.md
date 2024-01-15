@@ -22,7 +22,7 @@
 - A sends 900 B data
 - B sends ACK with now WS = 0B
   - Indicates B saying A to stop sending data
-- As soon as TCP sends data t oapplication another ACK from B will go to A with WS = 500B 
+- As soon as TCP sends data to application another ACK from B will go to A with WS = 500B 
 - Now, there can be a tricky situation when the ACK sent by B of 500B is lost.
   - A will wait for B to send ACK.
   - B wait for data as it sent ACK.
@@ -48,4 +48,3 @@ What if ACK is lost?
 ### Solution
 - This situation will lead to deadlock.
 - S will keep waiting for that ACK and R will keep on waiting for data packet.
-

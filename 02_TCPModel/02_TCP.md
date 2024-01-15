@@ -23,7 +23,7 @@
   - Connectionless means that there is no connection establishment between the sender and the receiver before sending the data.
 - It has optional error detection mechanism.
 - Packets are called User Datagram.
-- It is a message oriented protocol i.e. UDP has knoledge about message boundaries & we can send only the message that fits in a single packet.
+- It is a message oriented protocol i.e. UDP has knowledge about message boundaries & we can send only the message that fits in a single packet.
 
 # Stream Control Transmission Protocol (SCTP)
 

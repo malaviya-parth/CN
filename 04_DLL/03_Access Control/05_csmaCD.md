@@ -16,7 +16,7 @@
 ## FLowchart
 ![Alt text](./Assests/image2.png)
 
-How Collisions are dtected?
+How Collisions are detected?
 1. Zero level: Channel is idle
 2. Normal level: One of the station successfully captured the channel
 3. Abnormal Level: Collision has occured signal strength is doubled.
@@ -37,7 +37,7 @@ A network uses CSMA/CD protocol with B/W of 10 Mbps. If R.T.T. is 51.2 $\mu s$  
 Minimum Frame Size = B/W * Minimum Frame Duration  
 Minimum Frame Duration = 2 * Tp = RTT = 51.2 $\mu s$  
 Minimum Frame Size = 10 Mbps * 51.2 $\mu s$ = 512 bits = 64 bytes  
-So if we want to sned data of 50 bytes then we need to add 14 bytes of padding.
+So if we want to send data of 50 bytes then we need to add 14 bytes of padding.
 
 ## Q3
 In CSMA/CD network running at 1 Gbps, over 1 km cable, signal speed in cable is 200000 km/s. Find minimum frame size.
@@ -47,7 +47,7 @@ Tp = 1 km / 200000 km/s = 5 $\mu s$
 Minimum Frame Size = 1 Gbps * 5 $\mu s$ * 2 = 10,000 bits = 1250 bytes
 
 ## Q4
-A network consists of 4 hosts distributed as shown
+A network consists of 4 hosts distributed as shown  
 ![Alt text](./Assests/image3.png)
 
 Assume this network uses CSMA/CD & Signal travels with speed of 3 * 10^5 km/s. If sender sends at 1 Mbps then what is minimum frame size?

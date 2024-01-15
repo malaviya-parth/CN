@@ -34,7 +34,7 @@ Subnet Mask $\rightarrow$ 255.225.225.192, Find number of subnets and number of 
 
 ## Note:
 > Number of Subnets are reduced by 2 if we use RFC 950  
-> If we RFC 1812 then ther aren't reduced by two  
+> If we RFC 1812 then they aren't reduced by two  
 > Also, number of hosts are reduced by two in both the cases.
 
 ## Question
@@ -284,7 +284,7 @@ IP address in a block is 200.40.50.60 | Subnet Mask = 255.255.255.160
   - 3rd host = 200.40.50.35
 
 ## Question
-Find the subnet ID for the 1oth subnet in IP: 200.40.50.60 and Subnet Mask: 255.255.255.45. Also find DBA of 6th subnet
+Find the subnet ID for the both subnet in IP: 200.40.50.60 and Subnet Mask: 255.255.255.45. Also find DBA of 6th subnet
 
 ### Solution
 - 45 = 00<u>1</u>0<u>11</u>0<u>1</u>

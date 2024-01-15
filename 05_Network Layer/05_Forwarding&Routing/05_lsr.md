@@ -53,7 +53,7 @@
 - Sequence number also gives track that which packet is the latest.
 - Router stores packet of source router sequence pair, with latest sequence number.
 - The sequence number is of 32 bits.
-- If router crash, it will lose track of Seq number. It it starts again at 0, the next packet will be rejected as higher sequence numbe rpacket from this router is already present.
+- If router crash, it will lose track of Seq number. It starts again at 0, the next packet will be rejected as higher sequence number packet from this router is already present.
 - if a sequence number is ever corrupted and 65540 is received instead of 4, packets from 5 to 65540 will be rejected.
 ### Aging a solution to corrupted sequence numbers and crashes.
 - Age states upto what time we have to keep the packet at the router.
@@ -65,7 +65,7 @@
 
 | DVR | LSR |
 | --- | --- |
-| Info about all the routers | Info ablout immediate neighbours |
+| Info about all the routers | Info about immediate neighbours |
 | is shared with immediate nei. | is shared with all routers |
 | Bandwidth required is low | Bandwidth required is high[Flooding] |
 | Bellman Ford Algorithm | Dijkstra's Algorithm |

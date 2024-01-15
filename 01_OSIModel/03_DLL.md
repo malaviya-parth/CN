@@ -8,7 +8,7 @@
 2. Physical Addressing:-
     - Header of frame contain physical address of both Sender & Receiver if both are in same network, if not then only the physical address of the next hop is present.
 3. Flow Control:-
-    - Amountn of Data that can be sent from sender to receiver before receiving ACK.
+    - Amount of Data that can be sent from sender to receiver before receiving ACK.
 4. Error Control:-
     - Error Detection and Retransmission of frames that are corrupted or lost.
     - Error Correction

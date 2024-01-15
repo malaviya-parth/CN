@@ -25,7 +25,7 @@
   - It warns the receiver about frame is going to arrive hence used for synchronization.
 - **SFD(10101011):** It is the last warning to the receiver that frame is going to arrive.
   - Last two 1s tells the receiver that next field is going to be destination address.
-- **Length/type:** Type field used in original ethernet which gicves info about which higher layer(LLC) protocol is using MAC frame.
+- **Length/type:** Type field used in original ethernet which gives info about which higher layer(LLC) protocol is using MAC frame.
   - But IEEE standardized LANs since we have only one protocol i.e. PDU(Protocol Data Unit) at LLC. So IEEE modified this field to length field.
   - Length field tells only length of data not frame.
   - As length field is of 16 bits but data has got some restrictions so minimum length shows 46 bytes and maximum length shows 1500 bytes.
@@ -34,7 +34,7 @@
 - So minimum layer of MAC frame is 64 bytes and maximum is 1518 bytes.
 
 ## Addressing in Ehternet
-- Hexadecimal Notation is used & after each byte colon(:) is used as a separator.
+- Hexadecimal Notation is used & after each byte colon( : ) is used as a separator.
 - First 3 bytes are OUI(Organizationally Unique Identifier) and last 3 bytes are NIC(Network Interface Card) identifier.
 - 3 types of addresses are used in ethernet:
   - **Unicast:** First byte last bit is 0
