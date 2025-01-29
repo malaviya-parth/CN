@@ -18,15 +18,15 @@
 - Receiver sends ACK in response of SEL to inform he is ready.
 - Now Primary station will send data to receiver.
 - Further after receiving data receiver station will send ACK to inform data is received.
-- $\eta$ = $\frac{T_t}{T_{poll}+T_p+T_t}$t
+- $\eta$ = $\frac{T_t}{T_{poll}+T_p+T_t}$ t
 
 ## GATE 2007
-Nodes=10, B/W=10Mbps & poling is access method. Polling delay = 80 $\mu$sec. Node is allowed to send maximum of 1000 bytes data once it is polled. Maximum throughput?
+Nodes = 10, B/W = 10 Mbps & poling is access method. Polling delay = 80 $\mu$ sec. Node is allowed to send maximum of 1000 bytes data once it is polled. Maximum throughput?
 
 ### Solution
-- $T_{poll}$ = 80 $\mu$sec
-- $T_t$ = 1000*8/10Mbps = 800 $\mu$sec
-- $\eta$ = $\frac{T_t}{T_{poll}+T_p+T_t}$t
+- $T_{poll}$ = 80 $\mu$ sec
+- $T_t$ = 1000*8/10Mbps = 800 $\mu$ sec
+- $\eta$ = $\frac{T_t}{T_{poll}+T_p+T_t}$ t
   - $\eta$ = $\frac{800}{80+800}$ = 0.9
 - Throughput = $\eta$ * B/W
   - Throughput = 0.9 * 10Mbps = 9Mbps
